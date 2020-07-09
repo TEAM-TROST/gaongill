@@ -4,28 +4,61 @@ block head
     link(rel='stylesheet' href='/stylesheets/index.css')
 
 block content
-    .row
-        article.col-md-12
-            .highlight-content-box
-                .container
-                    .row
-                        .col-md-6
-                            .highlight-list-header
-                                h2 최신 업데이트 정책
-                                a.notice-more(href='/') 더보기
-                            ul.highlight-list-content
-                                li aaaa
-                                li 2222
-                                li 5555
-                                li 8888
-                                li asds
-                        .col-md-6
-                            .highlight-list-header
-                                h2 예산 집행 현황
-                                a.notice-more(href='/') 더보기
-                            ul.highlight-list-content
-                                li aaaa
-                                li 2222
-                                li 5555
-                                li 8888
-                                li asds
+    .hero-section
+        .container(style='height: 100%')
+            .row.justify-content-center.align-content-center(style='height: 100%')
+                .col-md-6
+                    p
+                        | 정직하고 바른 세상을 만드는 길
+                        b &nbsp;가온길
+                    .search-section
+                        input(type='text' placeholder='검색').form-control.form-control-lg
+                        .input-search-ico
+                            i.fa.fa-2x.fa-search
+    section.container
+        //.row
+            .col-md-8
+                .row
+                    .col-md-12.news-card
+                        a(href='/')
+                            .news-card-title
+                                img(src='/images/news/img-test.jpg')
+                            .news-footer.news-footer-bg-yellow
+                                h3 aaaaaa
+                                p adsadsad
+            .col-md-4
+        .row
+            .col-md-12
+                .highlight-content-box
+                    .container
+                        .row
+                            article.col-md-6
+                                .highlight-list-header
+                                    h2 최신 정책 평가
+                                    a.notice-more(href='/') 더보기
+                                ul.highlight-list-content
+                                    li
+                                        a aaaaa
+                                    li
+                                        a bbbbb
+                                    li
+                                        a ccccc
+                                    li
+                                        a ddddd
+                                    li
+                                        a eeeee
+                            article.col-md-6
+                                .highlight-list-header
+                                    h2 예산 집행 현황
+                                    a.notice-more(href='/') 더보기
+                                ul.highlight-list-content
+                                    li
+                                        a aaaaa
+                                    li
+                                        a bbbbb
+                                    li
+                                        a ccccc
+                                    li
+                                        a ddddd
+                                    li
+                                        a eeeee

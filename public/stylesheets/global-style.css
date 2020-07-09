@@ -29,10 +29,17 @@
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Handon3gyeopsal600g';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
-    font-family: 'NanumBarunGothic', sans-serif;
-    background: var(--color-dark-gray) url(/images/particle/body_bg.png);
+    font-family: 'Handon3gyeopsal600g', sans-serif;
+    /*background: var(--color-dark-gray) url(/images/particle/body_bg.png);*/
 }
 
 ul, li {
@@ -57,8 +64,16 @@ a, a:visited, a:link {
 }
 
 section.container {
-    background: var(--color-real-white) url(/images/particle/container_bg.png);
+    /*background: var(--color-real-white) url(/images/particle/container_bg.png);*/
     padding-bottom: 2em;
+}
+
+.row {
+    padding-top: .5em;
+}
+
+.row:not(:first-child) {
+    padding-top: 1.5em;
 }
 
 .footer-divider {
