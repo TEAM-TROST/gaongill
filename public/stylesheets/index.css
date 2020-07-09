@@ -1,54 +1,24 @@
-@keyframes news-card-animation {
-    0% {
-        transform: matrix(1, 0, 0, 1, 0, 0);
-    }
-    50% {
-        transform: matrix(1, 0, 0, 1, 0, -5);
-    }
-    100% {
-        transform: matrix(1, 0, 0, 1, 0, 0);
-    }
-}
-
-.hero-section {
-    background: linear-gradient(315deg, #3a7bd5, #3a6073);
-    height: 22em;
-}
-
-.hero-section p {
-    font-family: '62570체';
-    color: white;
-    font-size: 1.6em;
-    text-align: center;
-}
-
-.hero-section p > b {
-    color: var(--color-trost-normal);
-    font-size: 1.5em;
-    font-weight: normal;
-}
-
 .hero-section .search-section {
     display: flex;
 }
 
 .hero-section .search-section > .input-search-ico {
-    color: var(--color-light-gray);
+    color: var(--color-dark-light-gray);
     margin: .5rem 0 0 -3rem;
     z-index: 100;
 }
 
 .army-avatar-section {
-    padding: .5em 3em .5em;
+    position: relative;
 }
 
-.army-avatar-section > img {
+.army-avatar-section > svg {
     width: 100%;
+    height: 60%;
 }
 
 .army-avatar-section #army-head,
-.army-avatar-section #army-top,
-.army-avatar-section #army-bottom,
+.army-avatar-section #army-suite,
 .army-avatar-section #army-boots {
     fill: transparent;
     stroke: var(--avatar-stroke-color);
@@ -57,108 +27,41 @@
 
 .army-avatar-section #army-head:hover,
 .army-avatar-section #army-boots:hover,
-.army-avatar-section #army-top:hover,
-.army-avatar-section #army-bottom:hover {
+.army-avatar-section #army-suite:hover {
     fill: var(--avatar-fill-color);
+    cursor: pointer;
 }
 
-.army-avatar-overay {
-    border: 1px solid red;
-}
-
-.army-avatar-overay:hover {
-    background-color: rgba(64, 64, 64, 0.8);
-}
-
-.army-avatar-head {
-}
-
-.army-avatar-top {
-}
-
-.army-avatar-bottom {
-}
-
-.army-avatar-boots {
-}
-
-.news-card-title > img {
-    border-radius: 5px 5px 0 0;
+.army-avatar-info {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    padding: 2em;
+    overflow: hidden;
+    color: var(--color-real-white);
+    background-color: var(--avatar-overay-color);
+    display: none;
 }
 
-.news-footer-bg-yellow {
-    background-color: var(--news-footer-bg-yellow);
+.army-avatar-info > i {
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
 }
 
-.news-card:hover {
-    animation-name: news-card-animation;
-    animation-duration: 300ms;
+.army-avatar-info > .army-avatar-info__detail {
+    margin-bottom: 2em;
 }
 
-.news-card:hover .news-footer-bg-yellow {
-    background-color: var(--news-footer-bg-yellow-hover);
-}
-
-.news-footer-bg-green {
-    background-color: var(--news-footer-bg-green);
-}
-
-.news-card:hover .news-footer-bg-green {
-    background-color: var(--news-footer-bg-green-hover);
-}
-
-.news-footer-bg-brown {
-    background-color: var(--news-footer-bg-brown);
-}
-
-.news-card:hover .news-footer-bg-brown {
-    background-color: var(--news-footer-bg-brown-hover);
-}
-
-.news-footer-bg-gray {
-    background-color: var(--news-footer-bg-gray);
-}
-
-.news-card:hover .news-footer-bg-gray {
-    background-color: var(--news-footer-bg-gray-hover);
-}
-
-.news-footer-bg-black {
-    background-color: var(--news-footer-bg-black);
-}
-
-.news-card:hover .news-footer-bg-black {
-    background-color: var(--news-footer-bg-black-hover);
-}
-
-.news-footer-bg-blue {
-    background-color: var(--news-footer-bg-blue);
-}
-
-.news-card:hover .news-footer-bg-blue {
-    background-color: var(--news-footer-bg-blue-hover);
-}
-
-.news-footer {
-    border-radius: 0 0 5px 5px;
-    padding: 0.25em 1em 1em;
-    transition: background-color 150ms linear;
-}
-
-.news-footer > h3 {
-    margin: 0.25em 0;
-    color: white;
-}
-
-.news-footer p {
-    margin: 0.25em 0;
-    color: black;
+.army-avatar-info > .army-avatar-info__detail > h2 {
+    color: var(--avatar-detail-title-color);
 }
 
 @media (max-width: 767px) {
     .highlight-content-box {
-        margin-top: 1em;
+        margin-top: 1rem;
     }
 }
 
@@ -166,9 +69,10 @@
     border: 3px solid var(--highlight-box-border-color);
     background-color: var(--highlight-box-bg-color);
     padding: 1em;
+    position: relative;
 }
 
-.highlight-list-header {
+.highlight-header {
     border-bottom: 2px solid var(--color-trost-normal);
     color: var(--color-trost-normal);
     font-family: 'Handon3gyeopsal600g';
@@ -181,7 +85,6 @@
 }
 
 .highlight-list-content > li {
-    margin-left: .5em;
     padding: .5em 0 .5em 1.2em;
     position: relative;
     border-bottom: 1px dotted var(--color-trost-normal);

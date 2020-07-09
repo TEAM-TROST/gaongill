@@ -39,9 +39,9 @@
 body {
     margin: 0;
     font-family: 'Handon3gyeopsal600g', sans-serif;
+    font-size: 1.05em;
     /*background: var(--color-dark-gray) url(/images/particle/body_bg.png);*/
 }
-
 
 ul, li {
     list-style: none;
@@ -59,6 +59,10 @@ a:hover {
     color: var(--color-trost-hover);
 }
 
+.font-family-62570 {
+    font-family: '62570체';
+}
+
 .mnd-logo {
     height: 2em;
 }
@@ -69,51 +73,38 @@ a:hover {
     border-radius: 10px;
 }
 
+.member-ico {
+    color: var(--color-trost-normal);
+}
+
+.hero-section {
+    background: linear-gradient(315deg, #3a7bd5, #3a6073);
+    height: 22em;
+}
+
+.hero-section.hero-middle {
+    height: 11em;
+}
+
+.hero-section p {
+    font-family: '62570체';
+    color: white;
+    font-size: 1.6em;
+    text-align: center;
+    margin: 0;
+}
+
+.hero-section p > b {
+    color: var(--color-trost-normal);
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
 section.container {
     /*background: var(--color-real-white) url(/images/particle/container_bg.png);*/
     padding-bottom: 2em;
 }
 
-section.container > .row {
-    padding-top: 1.5em;
-}
-
-.footer-divider {
-    clear: both;
-    display: block;
-    height: 36px;
-    margin: 0 auto;
-    /* max-width: 1024px; */
-    width: 100%;
-}
-
-.footer-divider .footer-notch {
-    float: left;
-    margin-right: -100%;
-    width: 85.49%;
-    margin-left: 7.2525%;
-    background-color: var(--color-real-white);
-    height: 6px;
-    position: relative;
-}
-
-.footer-divider .footer-notch:before, .footer-divider .footer-notch:after {
-    content: '';
-    height: 6px;
-    position: absolute;
-    bottom: 0;
-    width: 12px;
-}
-
-.footer-divider .footer-notch:before {
-    background: transparent url(/images/particle/notch-top-left.png) no-repeat;
-    left: -11px;
-}
-
-.footer-divider .footer-notch:after {
-    background: transparent url(/images/particle/notch-top-right.png) no-repeat;
-    right: -11px;
-}
 
 .global-footer {
     background: var(--footer-bg-color);

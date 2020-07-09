@@ -2,6 +2,7 @@ extends layout
 
 block head
     link(rel='stylesheet' href='/stylesheets/index.css')
+    script(src='/javascripts/index.js')
 
 block content
     .hero-section
@@ -16,51 +17,83 @@ block content
                         .input-search-ico
                             i.fa.fa-2x.fa-search
     section.container
-        .row
-            .col-md-8
-                div(style='background-color: blue; height: 500px;')
-                    | aaaa
+        .row.mt-3
             .col-md-4
-                .army-avatar-section
-                    include /public/images/rok-army-character-removebg-dot.svg
-                    //img(src='/images/rok-army-character-removebg-dot.svg')
-        .row
-            .col-md-12
-                    .container
-                    .row.justify-content-center
-                        article.col-md-6
-                            .highlight-content-box
-                                .highlight-list-header
-                                    .title(style='display:flex')
-                                        i.fa.fa-balance-scale.fa-2x.mr-2
-                                        h2 최신 정책 평가
-                                    a.notice-more(href='/') 더보기
-                                ul.highlight-list-content
-                                    li
-                                        a(href='/') 가나다
-                                    li
-                                        a(href='/') 라마바
-                                    li
-                                        a(href='/') 사아자
-                                    li
-                                        a(href='/') 차카타
-                                    li
-                                        a(href='/') 파하
-                        article.col-md-6
-                            .highlight-content-box
-                                .highlight-list-header
-                                    .title(style='display:flex')
-                                        i.fa.fa-hand-holding-usd.fa-2x.mr-2
-                                        h2 예산 집행 현황
-                                    a.notice-more(href='/') 더보기
-                                ul.highlight-list-content
-                                    li
-                                        a(href='/') 가나다
-                                    li
-                                        a(href='/') 라마바
-                                    li
-                                        a(href='/') 사아자
-                                    li
-                                        a(href='/') 차카타
-                                    li
-                                        a(href='/') 파하
+                .highlight-content-box
+                    .highlight-header
+                        .title(style='display:flex')
+                            i.fa.fa-tshirt.fa-2x.mr-2
+                            h2 보급품
+                        a.notice-more(href='/') 더보기
+                    .army-avatar-section
+                        include /public/images/rok-army-character-removebg-dot.svg
+                    .army-avatar-info
+                        i.fa.fa-times-circle.fa-2x
+                        .army-avatar-info__detail.name
+                            h2 보급품명
+                            h5 @@@@
+                        .army-avatar-info__detail.unit
+                            h2 보급 수량
+                            h5 ####
+                        .army-avatar-info__detail.unit_price
+                            h2 단가
+                            h5 ####원
+                        .army-avatar-info__detail.total_price
+                            h2 총계
+                            h5 ####원
+            .col-md-8
+                .row
+                    .col-md-12
+                        .highlight-content-box
+                            .highlight-header
+                                .title(style='display:flex')
+                                    i.fa.fa-pencil-alt.fa-2x.mr-2
+                                    h2 소개
+                            .our-info.mt-3
+                                | 정부가 성공적으로 혁신하기 위해서는 민-관 협력을 통해 국민이 진정으로 원하는 정책을 수립하고 이 과정을 투명하게 공개하는 등 청렴 정책을 잘 활용해 정부와 시민 간에 신뢰를 구축하고 하는 것이 매우 중요합니다.
+                                br
+                                | 가온길은 정직하고 바른 가운데 길로 살아가라는 의미의 옛말입니다. 저희는 단어의 뜻처럼 정직하고 바른 세상을 만들기 위해 노력하고 있습니다.
+                    .col-md-12.mt-3
+                        .highlight-content-box.news
+                            .highlight-header
+                                .title(style='display:flex')
+                                    i.fa.fa-newspaper.fa-2x.mr-2
+                                    h2 국방뉴스
+                            ul.highlight-list-content
+        .row.mt-3
+            article.col-md-6
+                .highlight-content-box
+                    .highlight-header
+                        .title(style='display:flex')
+                            i.fa.fa-balance-scale.fa-2x.mr-2
+                            h2 정책 평가
+                        a.notice-more(href='/') 더보기
+                    ul.highlight-list-content
+                        li
+                            a(href='/') 가나다
+                        li
+                            a(href='/') 라마바
+                        li
+                            a(href='/') 사아자
+                        li
+                            a(href='/') 차카타
+                        li
+                            a(href='/') 파하
+            article.col-md-6
+                .highlight-content-box
+                    .highlight-header
+                        .title(style='display:flex')
+                            i.fa.fa-hand-holding-usd.fa-2x.mr-2
+                            h2 예산 현황
+                        a.notice-more(href='/') 더보기
+                    ul.highlight-list-content
+                        li
+                            a(href='/') 가나다
+                        li
+                            a(href='/') 라마바
+                        li
+                            a(href='/') 사아자
+                        li
+                            a(href='/') 차카타
+                        li
+                            a(href='/') 파하
