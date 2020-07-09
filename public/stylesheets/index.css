@@ -23,7 +23,7 @@
 }
 
 .hero-section p > b {
-    color: #000051;
+    color: var(--color-trost-normal);
     font-size: 1.5em;
     font-weight: normal;
 }
@@ -36,6 +36,50 @@
     color: var(--color-light-gray);
     margin: .5rem 0 0 -3rem;
     z-index: 100;
+}
+
+.army-avatar-section {
+    padding: .5em 3em .5em;
+}
+
+.army-avatar-section > img {
+    width: 100%;
+}
+
+.army-avatar-section #army-head,
+.army-avatar-section #army-top,
+.army-avatar-section #army-bottom,
+.army-avatar-section #army-boots {
+    fill: transparent;
+    stroke: var(--avatar-stroke-color);
+    stroke-width: 3px;
+}
+
+.army-avatar-section #army-head:hover,
+.army-avatar-section #army-boots:hover,
+.army-avatar-section #army-top:hover,
+.army-avatar-section #army-bottom:hover {
+    fill: var(--avatar-fill-color);
+}
+
+.army-avatar-overay {
+    border: 1px solid red;
+}
+
+.army-avatar-overay:hover {
+    background-color: rgba(64, 64, 64, 0.8);
+}
+
+.army-avatar-head {
+}
+
+.army-avatar-top {
+}
+
+.army-avatar-bottom {
+}
+
+.army-avatar-boots {
 }
 
 .news-card-title > img {
@@ -112,36 +156,48 @@
     color: black;
 }
 
+@media (max-width: 767px) {
+    .highlight-content-box {
+        margin-top: 1em;
+    }
+}
+
 .highlight-content-box {
+    border: 3px solid var(--highlight-box-border-color);
+    background-color: var(--highlight-box-bg-color);
     padding: 1em;
-    background-color: var(--color-real-white);
 }
 
 .highlight-list-header {
-    border-bottom: 2px solid var(--color-dark-gray);
+    border-bottom: 2px solid var(--color-trost-normal);
+    color: var(--color-trost-normal);
     font-family: 'Handon3gyeopsal600g';
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1em;
 }
 
 .highlight-list-content {
 }
 
 .highlight-list-content > li {
-    margin: 0 0 0.5em 0.5em;
-    padding-left: 1.2em;
+    margin-left: .5em;
+    padding: .5em 0 .5em 1.2em;
     position: relative;
+    border-bottom: 1px dotted var(--color-trost-normal);
 }
 
 .highlight-list-content > li > a {
-    color: var(--color-dark-light-gray);
+    cursor: pointer;
     font-weight: bold;
     letter-spacing: 1px;
     line-height: 100%;
     text-transform: none;
     vertical-align: middle;
+}
+
+.highlight-list-content > li > a:not(:hover) {
+    color: var(--color-dark-light-gray);
 }
 
 .highlight-list-content > li > a:before {
@@ -151,5 +207,5 @@
     position: absolute;
     opacity: 0.4;
     left: 6px;
-    top: 3px;
+    top: 1.4em;
 }

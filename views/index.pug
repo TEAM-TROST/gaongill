@@ -16,49 +16,51 @@ block content
                         .input-search-ico
                             i.fa.fa-2x.fa-search
     section.container
-        //.row
+        .row
             .col-md-8
-                .row
-                    .col-md-12.news-card
-                        a(href='/')
-                            .news-card-title
-                                img(src='/images/news/img-test.jpg')
-                            .news-footer.news-footer-bg-yellow
-                                h3 aaaaaa
-                                p adsadsad
+                div(style='background-color: blue; height: 500px;')
+                    | aaaa
             .col-md-4
+                .army-avatar-section
+                    include /public/images/rok-army-character-removebg-dot.svg
+                    //img(src='/images/rok-army-character-removebg-dot.svg')
         .row
             .col-md-12
-                .highlight-content-box
                     .container
-                        .row
-                            article.col-md-6
+                    .row.justify-content-center
+                        article.col-md-6
+                            .highlight-content-box
                                 .highlight-list-header
-                                    h2 최신 정책 평가
+                                    .title(style='display:flex')
+                                        i.fa.fa-balance-scale.fa-2x.mr-2
+                                        h2 최신 정책 평가
                                     a.notice-more(href='/') 더보기
                                 ul.highlight-list-content
                                     li
-                                        a aaaaa
+                                        a(href='/') 가나다
                                     li
-                                        a bbbbb
+                                        a(href='/') 라마바
                                     li
-                                        a ccccc
+                                        a(href='/') 사아자
                                     li
-                                        a ddddd
+                                        a(href='/') 차카타
                                     li
-                                        a eeeee
-                            article.col-md-6
+                                        a(href='/') 파하
+                        article.col-md-6
+                            .highlight-content-box
                                 .highlight-list-header
-                                    h2 예산 집행 현황
+                                    .title(style='display:flex')
+                                        i.fa.fa-hand-holding-usd.fa-2x.mr-2
+                                        h2 예산 집행 현황
                                     a.notice-more(href='/') 더보기
                                 ul.highlight-list-content
                                     li
-                                        a aaaaa
+                                        a(href='/') 가나다
                                     li
-                                        a bbbbb
+                                        a(href='/') 라마바
                                     li
-                                        a ccccc
+                                        a(href='/') 사아자
                                     li
-                                        a ddddd
+                                        a(href='/') 차카타
                                     li
-                                        a eeeee
+                                        a(href='/') 파하

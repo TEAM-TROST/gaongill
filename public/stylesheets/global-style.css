@@ -42,6 +42,7 @@ body {
     /*background: var(--color-dark-gray) url(/images/particle/body_bg.png);*/
 }
 
+
 ul, li {
     list-style: none;
     padding: 0;
@@ -51,6 +52,11 @@ ul, li {
 a, a:visited, a:link {
     text-decoration: none;
     color: inherit;
+    transition: color 250ms;
+}
+
+a:hover {
+    color: var(--color-trost-hover);
 }
 
 .mnd-logo {
@@ -68,11 +74,7 @@ section.container {
     padding-bottom: 2em;
 }
 
-.row {
-    padding-top: .5em;
-}
-
-.row:not(:first-child) {
+section.container > .row {
     padding-top: 1.5em;
 }
 

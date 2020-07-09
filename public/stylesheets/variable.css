@@ -2,9 +2,18 @@
     --color-real-white: #fff;
     --color-real-black: #000;
 
-    --color-light-gray: rgb(145, 145, 145);
+    --color-trost-normal: #000051;
+    --color-trost-hover: #7bd1d9;
+
+    --color-light-gray: rgb(220, 220, 220);
     --color-dark-light-gray: rgb(97, 97, 97);
     --color-dark-gray: rgb(66, 66, 66);
+
+    --avatar-stroke-color: rgb(0, 130, 58);
+    --avatar-fill-color: rgba(0, 130, 58, 0.7);
+
+    --highlight-box-bg-color: #f9f9f9;
+    --highlight-box-border-color: #dee3eb;
 
     --news-footer-bg-yellow: #e6bc2f;
     --news-footer-bg-yellow-hover: #daa31c;
