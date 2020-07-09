@@ -1,0 +1,8 @@
+# Webstorm workspace folder
+.idea/
+
+# Node.js workspace folder
+node_modules/
+
+# dotenv configure file
+.env
