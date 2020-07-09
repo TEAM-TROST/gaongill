@@ -29,10 +29,18 @@
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Handon3gyeopsal600g';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
-    font-family: 'NanumBarunGothic', sans-serif;
-    background: var(--color-dark-gray) url(/images/particle/body_bg.png);
+    font-family: 'Handon3gyeopsal600g', sans-serif;
+    font-size: 1.05em;
+    /*background: var(--color-dark-gray) url(/images/particle/body_bg.png);*/
 }
 
 ul, li {
@@ -44,6 +52,15 @@ ul, li {
 a, a:visited, a:link {
     text-decoration: none;
     color: inherit;
+    transition: color 250ms;
+}
+
+a:hover {
+    color: var(--color-trost-hover);
+}
+
+.font-family-62570 {
+    font-family: '62570체';
 }
 
 .mnd-logo {
@@ -56,47 +73,38 @@ a, a:visited, a:link {
     border-radius: 10px;
 }
 
+.member-ico {
+    color: var(--color-trost-normal);
+}
+
+.hero-section {
+    background: linear-gradient(315deg, #3a7bd5, #3a6073);
+    height: 22em;
+}
+
+.hero-section.hero-middle {
+    height: 11em;
+}
+
+.hero-section p {
+    font-family: '62570체';
+    color: white;
+    font-size: 1.6em;
+    text-align: center;
+    margin: 0;
+}
+
+.hero-section p > b {
+    color: var(--color-trost-normal);
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
 section.container {
-    background: var(--color-real-white) url(/images/particle/container_bg.png);
+    /*background: var(--color-real-white) url(/images/particle/container_bg.png);*/
     padding-bottom: 2em;
 }
 
-.footer-divider {
-    clear: both;
-    display: block;
-    height: 36px;
-    margin: 0 auto;
-    /* max-width: 1024px; */
-    width: 100%;
-}
-
-.footer-divider .footer-notch {
-    float: left;
-    margin-right: -100%;
-    width: 85.49%;
-    margin-left: 7.2525%;
-    background-color: var(--color-real-white);
-    height: 6px;
-    position: relative;
-}
-
-.footer-divider .footer-notch:before, .footer-divider .footer-notch:after {
-    content: '';
-    height: 6px;
-    position: absolute;
-    bottom: 0;
-    width: 12px;
-}
-
-.footer-divider .footer-notch:before {
-    background: transparent url(/images/particle/notch-top-left.png) no-repeat;
-    left: -11px;
-}
-
-.footer-divider .footer-notch:after {
-    background: transparent url(/images/particle/notch-top-right.png) no-repeat;
-    right: -11px;
-}
 
 .global-footer {
     background: var(--footer-bg-color);

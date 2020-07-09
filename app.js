@@ -4,13 +4,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes/index');
-
 const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+app.locals.basedir = path.join(__dirname);
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -19,8 +20,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+// APIs
+app.use('/api', require('./routes/api/kookbangIlbo'));
 
-app.use('/', indexRouter);
+// Views
+app.use('/', require('./routes/index'));
+app.use('/about', require('./routes/about'));
+app.use('/signup', require('./routes/signup'));
+app.use('/signin', require('./routes/signin'));
 
 
 

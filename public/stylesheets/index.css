@@ -1,11 +1,81 @@
-.highlight-content-box {
-    padding: 1em;
-    background-color: var(--color-real-white);
+.hero-section .search-section {
+    display: flex;
 }
 
-.highlight-list-header {
-    border-bottom: 2px solid var(--color-dark-gray);
-    font-family: '62570체';
+.hero-section .search-section > .input-search-ico {
+    color: var(--color-dark-light-gray);
+    margin: .5rem 0 0 -3rem;
+    z-index: 100;
+}
+
+.army-avatar-section {
+    position: relative;
+}
+
+.army-avatar-section > svg {
+    width: 100%;
+    height: 60%;
+}
+
+.army-avatar-section #army-head,
+.army-avatar-section #army-suite,
+.army-avatar-section #army-boots {
+    fill: transparent;
+    stroke: var(--avatar-stroke-color);
+    stroke-width: 3px;
+}
+
+.army-avatar-section #army-head:hover,
+.army-avatar-section #army-boots:hover,
+.army-avatar-section #army-suite:hover {
+    fill: var(--avatar-fill-color);
+    cursor: pointer;
+}
+
+.army-avatar-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+    overflow: hidden;
+    color: var(--color-real-white);
+    background-color: var(--avatar-overay-color);
+    display: none;
+}
+
+.army-avatar-info > i {
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+}
+
+.army-avatar-info > .army-avatar-info__detail {
+    margin-bottom: 2em;
+}
+
+.army-avatar-info > .army-avatar-info__detail > h2 {
+    color: var(--avatar-detail-title-color);
+}
+
+@media (max-width: 767px) {
+    .highlight-content-box {
+        margin-top: 1rem;
+    }
+}
+
+.highlight-content-box {
+    border: 3px solid var(--highlight-box-border-color);
+    background-color: var(--highlight-box-bg-color);
+    padding: 1em;
+    position: relative;
+}
+
+.highlight-header {
+    border-bottom: 2px solid var(--color-trost-normal);
+    color: var(--color-trost-normal);
+    font-family: 'Handon3gyeopsal600g';
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,6 +84,31 @@
 .highlight-list-content {
 }
 
-.notice-more {
-    font-size: 1.1em;
+.highlight-list-content > li {
+    padding: .5em 0 .5em 1.2em;
+    position: relative;
+    border-bottom: 1px dotted var(--color-trost-normal);
+}
+
+.highlight-list-content > li > a {
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 100%;
+    text-transform: none;
+    vertical-align: middle;
+}
+
+.highlight-list-content > li > a:not(:hover) {
+    color: var(--color-dark-light-gray);
+}
+
+.highlight-list-content > li > a:before {
+    color: var(--color-dark-light-gray);
+    content: "\25B6";
+    font-size: 55%;
+    position: absolute;
+    opacity: 0.4;
+    left: 6px;
+    top: 1.4em;
 }

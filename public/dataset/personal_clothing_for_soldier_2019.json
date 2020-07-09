@@ -1,0 +1,330 @@
+[
+  {
+    "itmnm": "사계전투복",
+    "detailnm": "사계전투복 상하의",
+    "unit": 2,
+    "unit_price": 79593,
+    "total_price": 159186,
+    "G2B_ID": [
+      "2020EHD00841E22A-01",
+      "2020EHD01021230A-01",
+      "2020EHD00941E22C-01"
+    ]
+  },
+  {
+    "itmnm": "하계전투복",
+    "detailnm": "하계전투복 상하의",
+    "unit": 2,
+    "unit_price": 77302,
+    "total_price": 154604,
+    "G2B_ID": [
+      "2020EHD00941E22C-01",
+      "2020EHD01021230A-01",
+      "2020EHD00951E24C-01"
+    ]
+  },
+  {
+    "itmnm": "베레모(전투모)",
+    "detailnm": "베레모",
+    "unit": 1,
+    "unit_price": 5840,
+    "total_price": 5840,
+    "G2B_ID": [
+      "2020EHD00037A025-01"
+    ]
+  },
+  {
+    "itmnm": "기능성전투화",
+    "detailnm": "전투화",
+    "unit": 2,
+    "unit_price": 56710,
+    "total_price": 113420,
+    "G2B_ID": [
+      "2019EHD00723E461-01"
+    ]
+  },
+  {
+    "itmnm": "운동모(활동모)",
+    "detailnm": "활동모",
+    "unit": 1,
+    "unit_price": 4235,
+    "total_price": 4235,
+    "G2B_ID": [
+      "2020EHD00667A060-02"
+    ]
+  },
+  {
+    "itmnm": "동계생활모",
+    "detailnm": "비니",
+    "unit": 1,
+    "unit_price": 9176,
+    "total_price": 9176,
+    "G2B_ID": [
+      "2019EHD7E060"
+    ]
+  },
+  {
+    "itmnm": "방상외피",
+    "detailnm": "야상",
+    "unit": 1,
+    "unit_price": 138814,
+    "total_price": 138814,
+    "G2B_ID": [
+      "2020EHD00881E02A-01",
+      "2020EHD01031250A-01",
+      "2020EHD00961E02C-01"
+    ]
+  },
+  {
+    "itmnm": "방상내피",
+    "detailnm": "깔깔이",
+    "unit": 1,
+    "unit_price": 24109,
+    "total_price": 24109,
+    "G2B_ID": [
+      "2020EHD00861E26A-01",
+      "2020EHD01011E26C-01"
+    ]
+  },
+  {
+    "itmnm": "동내의",
+    "detailnm": "내복",
+    "unit": 2,
+    "unit_price": 26644,
+    "total_price": 53288,
+    "G2B_ID": [
+      "2020EHD01048F230-01"
+    ]
+  },
+  {
+    "itmnm": "의류대",
+    "detailnm": "더플백",
+    "unit": 1,
+    "unit_price": 14951,
+    "total_price": 14951,
+    "G2B_ID": [
+      "2015EHD00312A040-01"
+    ]
+  },
+  {
+    "itmnm": "장갑",
+    "detailnm": "방한장갑",
+    "unit": 1,
+    "unit_price": 24477,
+    "total_price": 24477,
+    "G2B_ID": [
+      "2014EHD01183360-02"
+    ]
+  },
+  {
+    "itmnm": "런닝",
+    "detailnm": "런닝",
+    "unit": 7,
+    "unit_price": 3738,
+    "total_price": 26166,
+    "G2B_ID": [
+      "2015EHD01198213-01"
+    ]
+  },
+  {
+    "itmnm": "팬티",
+    "detailnm": "팬티",
+    "unit": 7,
+    "unit_price": 3979,
+    "total_price": 27853,
+    "G2B_ID": [
+      "2020EHD00938F225-01"
+    ]
+  },
+  {
+    "itmnm": "디지털요대",
+    "detailnm": "요대",
+    "unit": 1,
+    "unit_price": 1818,
+    "total_price": 1818,
+    "G2B_ID": [
+      "2020EHD00432F011-01"
+    ]
+  },
+  {
+    "itmnm": "인식표/줄",
+    "detailnm": "군번줄",
+    "unit": 1,
+    "unit_price": 703,
+    "total_price": 703,
+    "G2B_ID": [
+      "2020EHD00098B020-01",
+      "2014EHD00248010-03"
+    ]
+  },
+  {
+    "itmnm": "모/면양말",
+    "detailnm": "모/면양말",
+    "unit": 6,
+    "unit_price": 1900,
+    "total_price": 11400,
+    "G2B_ID": [
+      "2014HCM005714721-01"
+    ]
+  },
+  {
+    "itmnm": "방한양말",
+    "detailnm": "방한양말",
+    "unit": 2,
+    "unit_price": 5785,
+    "total_price": 11570,
+    "G2B_ID": [
+      "2015EHD00598251-01"
+    ]
+  },
+  {
+    "itmnm": "면수건",
+    "detailnm": "면수건",
+    "unit": 4,
+    "unit_price": 4000,
+    "total_price": 16000,
+    "G2B_ID": [
+      "2019SCL41097"
+    ]
+  },
+  {
+    "itmnm": "손수건",
+    "detailnm": "손수건",
+    "unit": 2,
+    "unit_price": 1200,
+    "total_price": 2400,
+    "G2B_ID": [
+      "2015SCF34824"
+    ]
+  },
+  {
+    "itmnm": "전투용장갑",
+    "detailnm": "전투용장갑",
+    "unit": 1,
+    "unit_price": 23000,
+    "total_price": 23000,
+    "G2B_ID": [
+      "2015SFM20774"
+    ]
+  },
+  {
+    "itmnm": "모장갑",
+    "detailnm": "요술장갑",
+    "unit": 1,
+    "unit_price": 1587,
+    "total_price": 1587,
+    "G2B_ID": [
+      "2014EHD01373310-01"
+    ]
+  },
+  {
+    "itmnm": "운동화",
+    "detailnm": "운동화",
+    "unit": 1,
+    "unit_price": 88000,
+    "total_price": 88000,
+    "G2B_ID": [
+      "2017HCL16355"
+    ]
+  },
+  {
+    "itmnm": "동운동복",
+    "detailnm": "동운동복",
+    "unit": 2,
+    "unit_price": 54257,
+    "total_price": 108514,
+    "G2B_ID": [
+      "2020EHD00831F488-01"
+    ]
+  },
+  {
+    "itmnm": "하운동복",
+    "detailnm": "하운동복",
+    "unit": 2,
+    "unit_price": 28751,
+    "total_price": 57502,
+    "G2B_ID": [
+      "2020EHD00921F489-01"
+    ]
+  },
+  {
+    "itmnm": "춘추운동복",
+    "detailnm": "춘추운동복",
+    "unit": 2,
+    "unit_price": 32725,
+    "total_price": 65450,
+    "G2B_ID": [
+      "2020EHD00871F487-01"
+    ]
+  },
+  {
+    "itmnm": "세면주머니",
+    "detailnm": "세면주머니",
+    "unit": 1,
+    "unit_price": 2659,
+    "total_price": 2659,
+    "G2B_ID": [
+      "2014EHD00063370-01"
+    ]
+  },
+  {
+    "itmnm": "슬리퍼",
+    "detailnm": "슬리퍼",
+    "unit": 1,
+    "unit_price": 8500,
+    "total_price": 8500,
+    "G2B_ID": [
+      "2019SFL06195"
+    ]
+  },
+  {
+    "itmnm": "고무줄",
+    "detailnm": "고무링",
+    "unit": 1,
+    "unit_price": 620,
+    "total_price": 620,
+    "G2B_ID": [
+      "2016LFC18331"
+    ]
+  },
+  {
+    "itmnm": "안면마스크",
+    "detailnm": "안면마스크",
+    "unit": 1,
+    "unit_price": 4343,
+    "total_price": 4343,
+    "G2B_ID": [
+      "2020EHD00147F055-01"
+    ]
+  },
+  {
+    "itmnm": "귀덮개",
+    "detailnm": "귀덮개",
+    "unit": 1,
+    "unit_price": 2400,
+    "total_price": 2400,
+    "G2B_ID": [
+      "2011HCDD1612"
+    ]
+  },
+  {
+    "itmnm": "목도리",
+    "detailnm": "목도리",
+    "unit": 1,
+    "unit_price": 2921,
+    "total_price": 2921,
+    "G2B_ID": [
+      "2019EHD00611H651-01"
+    ]
+  },
+  {
+    "itmnm": "축구화",
+    "detailnm": "축구화",
+    "unit": 1,
+    "unit_price": 79000,
+    "total_price": 79000,
+    "G2B_ID": [
+      "2016UMM31392"
+    ]
+  }
+]

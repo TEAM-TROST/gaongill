@@ -1,4 +1,4 @@
-nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
     a.navbar-brand(href='/')
         img(class='mnd-logo' src='/images/logo/mnd_mark.gif')
         //img(class='brand-logo' src='/images/logo/small.svg')
@@ -7,17 +7,17 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
     #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
             li.nav-item.active
-                a.nav-link(href='/')
+                a.nav-link(href='/about')
                     | 가온길 소개
-                    span.sr-only (Information)
+                    span.sr-only (About Us)
             li.nav-item
-                a.nav-link(href='/')
+                a.nav-link(href='/general')
                     | 종합 평가
             li.nav-item.dropdown
                 a.navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                     | 국방정책
                 .dropdown-menu(aria-labelledby='navbarDropdown')
-                    a.dropdown-item(href='#') 최신 업데이트 정책
+                    a.dropdown-item(href='#') 최신 정책 평가
                     a.dropdown-item(href='#') 인기 정책 보기
                     a.dropdown-item(href='#') 평가 단계별 보기
             li.nav-item.dropdown
@@ -25,8 +25,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
                     | 국방예산
                 .dropdown-menu(aria-labelledby='navbarDropdown')
                     a.dropdown-item(href='#') 예산 날짜별 보기
-                    a.dropdown-item(href='#') 예산 금액별 보기
                     a.dropdown-item(href='#') 예산 집행 부서별 보기
+                    .dropdown-divider
+                    a.dropdown-item(href='#') 보급품 예산 보기
             li.nav-item.dropdown
                 a.navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                     | 국방뉴스
@@ -37,11 +38,14 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
                     a.dropdown-item(href='#') 병무 분야
                     a.dropdown-item(href='#') 국가보훈 분야
             li.nav-item
-                a.nav-link(href='/')
+                a.nav-link(href='/inquiry')
                     | 기여 신청
-            li.nav-item
-                a.nav-link(href='/')
-                    | 고객 센터
-        form.form-inline.my-2.my-lg-0
-            input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search')
-            button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+        ul.navbar-nav.mb-2.mb-md-0.member-ico
+            li.nav-item.d-flex.justify-content-between.align-items-center.mr-3
+                i.fa.fa-user
+                a.nav-link(href='/signup')
+                    | 회원가입
+            li.nav-item.d-flex.justify-content-between.align-items-center
+                i.fa.fa-sign-in-alt
+                a.nav-link(href='/signin')
+                    | 로그인

@@ -1,9 +1,35 @@
 :root {
     --color-real-white: #fff;
     --color-real-black: #000;
-    --color-light-gray: rgb(145, 145, 145);
+
+    --color-trost-normal: #000051;
+    --color-trost-hover: #7bd1d9;
+
+    --color-light-gray: rgb(220, 220, 220);
     --color-dark-light-gray: rgb(97, 97, 97);
     --color-dark-gray: rgb(66, 66, 66);
+
+    --avatar-stroke-color: rgb(0, 130, 58);
+    --avatar-fill-color: rgba(0, 130, 58, 0.7);
+    --avatar-overay-color: rgba(25, 25, 25, .8);
+    --avatar-detail-title-color: #00d0ff;
+
+    --highlight-box-bg-color: #f9f9f9;
+    --highlight-box-border-color: #dee3eb;
+
+    --color-yellow: #e6bc2f;
+    --color-yellow-accent: #daa31c;
+    --color-green: #4dad5b;
+    --color-green-accent: #369143;
+    --color-brown: #675945;
+    --color-brown-accent: #483f31;
+    --color-gray: #a4a4a4;
+    --color-gray-accent: #8b8b8b;
+    --color-black: #313131;
+    --color-black-accent: #282828;
+    --color-blue: #1b53ba;
+    --color-blue-accent: #1847d7;
+
     --gnb-bg-color: rgba(0, 31, 80, 0.9);
     --footer-bg-color: rgb(31, 31, 31);
 }

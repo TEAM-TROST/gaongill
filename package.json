@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
@@ -13,8 +14,10 @@
     "fs": "0.0.1-security",
     "http-errors": "~1.6.3",
     "https": "^1.0.0",
+    "iconv-lite": "^0.6.2",
     "morgan": "~1.9.1",
     "path": "^0.12.7",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "request": "^2.88.2"
   }
 }
