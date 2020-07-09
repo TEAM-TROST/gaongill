@@ -1,0 +1,19 @@
+.highlight-content-box {
+    padding: 1em;
+    background-color: var(--color-real-white);
+}
+
+.highlight-list-header {
+    border-bottom: 2px solid var(--color-dark-gray);
+    font-family: '62570체';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.highlight-list-content {
+}
+
+.notice-more {
+    font-size: 1.1em;
+}

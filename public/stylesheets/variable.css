@@ -1,0 +1,9 @@
+:root {
+    --color-real-white: #fff;
+    --color-real-black: #000;
+    --color-light-gray: rgb(145, 145, 145);
+    --color-dark-light-gray: rgb(97, 97, 97);
+    --color-dark-gray: rgb(66, 66, 66);
+    --gnb-bg-color: rgba(0, 31, 80, 0.9);
+    --footer-bg-color: rgb(31, 31, 31);
+}

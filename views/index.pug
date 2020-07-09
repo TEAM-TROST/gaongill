@@ -1,8 +1,31 @@
 extends layout
 
+block head
+    link(rel='stylesheet' href='/stylesheets/index.css')
+
 block content
     .row
-        .col-md-6(style='background-color:red;')
-            | aaaaaaaaaaaaaa
-        .col-md-6(style='background-color:blue;')
-            | bbbbbbbbbbbb
+        article.col-md-12
+            .highlight-content-box
+                .container
+                    .row
+                        .col-md-6
+                            .highlight-list-header
+                                h2 최신 업데이트 정책
+                                a.notice-more(href='/') 더보기
+                            ul.highlight-list-content
+                                li aaaa
+                                li 2222
+                                li 5555
+                                li 8888
+                                li asds
+                        .col-md-6
+                            .highlight-list-header
+                                h2 예산 집행 현황
+                                a.notice-more(href='/') 더보기
+                            ul.highlight-list-content
+                                li aaaa
+                                li 2222
+                                li 5555
+                                li 8888
+                                li asds
