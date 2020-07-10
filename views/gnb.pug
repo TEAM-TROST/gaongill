@@ -41,11 +41,19 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                 a.nav-link(href='/inquiry')
                     | 기여 신청
         ul.navbar-nav.mb-2.mb-md-0.member-ico
-            li.nav-item.d-flex.justify-content-between.align-items-center.mr-3
-                i.fa.fa-user
-                a.nav-link(href='/signup')
-                    | 회원가입
-            li.nav-item.d-flex.justify-content-between.align-items-center
-                i.fa.fa-sign-in-alt
-                a.nav-link(href='/signin')
-                    | 로그인
+            if user
+                li.nav-item.d-flex.justify-content-between.align-items-center.mr-3
+                    a.nav-link(href='/auth/signout')
+                        i.fa.fa-user.mr-2
+                        | 로그아웃
+                    a.nav-link(href='#')
+                        = user.displayName
+            else
+                li.nav-item.d-flex.justify-content-between.align-items-center.mr-3
+                    a.nav-link(href='/auth/signup')
+                        i.fa.fa-user.mr-2
+                        | 회원가입
+                li.nav-item.d-flex.justify-content-between.align-items-center
+                    a.nav-link(href='/auth/signin')
+                        i.fa.fa-sign-in-alt.mr-2
+                        | 로그인
