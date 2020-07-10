@@ -6,3 +6,6 @@ node_modules/
 
 # dotenv configure file
 .env
+
+# DB Secure Configure file
+secure-configure.json

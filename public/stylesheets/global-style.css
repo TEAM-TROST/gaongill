@@ -51,7 +51,6 @@ ul, li {
 
 a, a:visited, a:link {
     text-decoration: none;
-    color: inherit;
     transition: color 250ms;
 }
 
@@ -61,6 +60,10 @@ a:hover {
 
 .font-family-62570 {
     font-family: '62570체';
+}
+
+.font-family-NanumBarunGothic {
+    font-family: NanumBarunGothic;
 }
 
 .mnd-logo {

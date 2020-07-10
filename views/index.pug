@@ -60,6 +60,9 @@ block content
                                     i.fa.fa-newspaper.fa-2x.mr-2
                                     h2 국방뉴스
                             ul.highlight-list-content
+                                -for (let index = 0; index < 9; index++)
+                                    li
+                                        a(href=newsData[index].url target='_blank')= newsData[index].title
         .row.mt-3
             article.col-md-6
                 .highlight-content-box
