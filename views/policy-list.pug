@@ -1,0 +1,39 @@
+extends layout
+
+block head
+    link(rel='stylesheet' href='/stylesheets/policy.css')
+block content
+    section.hero-section.hero-middle
+        .container(style='height: 100%')
+            .row.justify-content-center.align-items-center(style='height: 100%')
+                .col-md-6
+                    p
+                        | 정직하고 바른 세상을 만드는 길
+                        b &nbsp;가온길
+    section.container
+        .row.mt-3
+            .col-md-12
+                .policy-content
+                    if(user && user.permission ==='admin')
+                        a(href='/policy/upload').policy-action.btn.btn-outline-primary 정책 등록
+                    ul.policy-header.d-flex.justify-content-between
+                        if(type==='2')
+                            li
+                                a(href='/policy/list?type=1') 최신 평가 정책
+                            li.active
+                                a(href='/policy/list?type=2') 인기 정책
+                        else
+                            li.active
+                                a(href='/policy/list?type=1') 최신 평가 정책
+                            li
+                                a(href='/policy/list?type=2') 인기 정책
+                    .policy-list
+                        ul
+                            li.policy-item
+                                a(href='#')
+                                    h3.title aaaa
+                                    p.desc.font-family-NanumBarunGothic bbbbb
+                            li.policy-item
+                                a(href='#')
+                                    h3.title aaaa
+                                    p.desc.font-family-NanumBarunGothic bbbbb

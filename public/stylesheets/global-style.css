@@ -181,3 +181,11 @@ section.container {
     width: 146px;
     height: 44px;
 }
+
+.note-editing-area {
+    font-family: NanumBarunGothic, sans-serif;
+}
+
+.note-editing-area p {
+    margin: 0;
+}
