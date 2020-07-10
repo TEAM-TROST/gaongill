@@ -25,9 +25,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-    secret: '1234DSFs@adf1234!@#$asd',
+    secret: 'GAONGill_By_TROST',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: new MySQLStore(MySQLSetting)
 }));
 

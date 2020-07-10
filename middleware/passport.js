@@ -32,15 +32,17 @@ module.exports = (app) => {
     });
 
     passport.use(new LocalStrategy({
-            usernameField: 'useremail',
-            passwordField: 'userpw'
+            usernameField: 'email',
+            passwordField: 'password'
         },
         (username, password, done) => {
             const uname = username;
             const pwd = password;
+            console.log(uname, pwd);
 
             const sql = 'SELECT * FROM users WHERE authId=?';
             conn.query(sql, ['local:' + uname], (err, results) => {
+                console.log(results);
                 if (err || !results[0]) {
                     done('There is no user.');
                 } else {

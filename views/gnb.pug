@@ -44,8 +44,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
             if user
                 li.nav-item.d-flex.justify-content-between.align-items-center.mr-3
                     a.nav-link(href='/auth/signout')
-                        i.fa.fa-user
+                        i.fa.fa-user.mr-2
                         | 로그아웃
+                    a.nav-link(href='#')
+                        = user.displayName
             else
                 li.nav-item.d-flex.justify-content-between.align-items-center.mr-3
                     a.nav-link(href='/auth/signup')

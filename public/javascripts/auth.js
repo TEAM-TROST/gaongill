@@ -1,3 +1,6 @@
 $(window).on('load', () => {
-    if (location.hash === '#_=_') location.replace(location.href.split('#')[0]);
+   $('.signup-form, .signin-form').on('submit', function(evt){
+       // evt.preventDefault();
+       console.log(evt.target);
+   });
 });
