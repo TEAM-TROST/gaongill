@@ -1,0 +1,54 @@
+.policy-action {
+    
+}
+
+.policy-header li {
+    width: 50%;
+    text-align: center;
+    border-bottom: 2px solid var(--color-light-gray);
+}
+
+.policy-header li.active {
+    border-bottom: 2px solid var(--color-trost-normal);
+}
+
+.policy-header li:first-child a {
+    border-right: 1px solid var(--color-light-gray);
+}
+
+.policy-header li a {
+    display: block;
+    padding: .5em 0;
+    color: var(--color-dark-gray);
+    width: 100%;
+}
+
+.policy-header li.active a {
+    width: 100%;
+    color: var(--color-trost-normal)
+}
+
+
+.policy-list ul li {
+    transition: background-color 250ms;
+}
+
+.policy-list ul li:hover {
+    background-color: var(--color-list-hover);
+}
+
+.policy-list ul li.policy-item a {
+    display: block;
+    padding: 1.5em 1em;
+    /*background-color: var(--highlight-box-bg-color);*/
+    border-bottom: 1px solid var(--highlight-box-border-color);
+}
+
+.policy-item .title {
+    color: var(--color-trost-normal);
+}
+
+.policy-item .desc {
+    margin: 0;
+    color: var(--color-dark-light-gray);
+}
