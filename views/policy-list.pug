@@ -32,8 +32,8 @@ block content
                             -for (let idx = (page - 1) * 10; idx < page * 10; idx++)
                                 if(data[idx])
                                     li.policy-item
-                                        a(href='/policy/view?id=' + data[idx].id + '&type=' + type + '&page=' + page)
-                                            h3.title= data[idx].promise_content
+                                        a(href='/policy/view?id=' + data[idx].policy_id + '&type=' + type + '&page=' + page)
+                                            h3.title= data[idx].promise_title
                                             p.desc.font-family-NanumBarunGothic
                                                 = data[idx].promise_field
                                                 | &nbsp;|&nbsp;

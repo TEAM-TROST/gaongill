@@ -11,29 +11,88 @@ block content
                         | 정직하고 바른 세상을 만드는 길
                         b &nbsp;가온길
     section.container
-        .row.mt-3
+        .row.mt-4
             .col-md-12
-                .policy-content
-                    p id:&nbsp;
-                        =data.id
-                    p region::&nbsp;
-                        =data.region
-                    p district:&nbsp;
-                        =data.district
-                    p proposer:&nbsp;
-                        =data.proposer
-                    p party:&nbsp;
-                        =data.party
-                    p promise_field:&nbsp;
-                        =data.promise_field
-                    p promise_content:&nbsp;
-                        =data.promise_content
-                    p promise_progress:&nbsp;
-                        =data.promise_progress
-                    p hit:&nbsp;
-                        =data.hit
-                    p page:&nbsp;
-                        =page
-                    p type:&nbsp;
-                        =type
-                    a(href='/policy/list?type=' + type + '&page=' + page) 목록
+                .policy-view-header
+                    .title(style='display:flex')
+                        h2= data[0].promise_title
+                    ul.desc.d-flex.justify-content-between.font-family-NanumBarunGothic
+                        li
+                            =data[0].promise_field
+                            | &nbsp;|&nbsp;
+                            =data[0].party
+                            | &nbsp;|&nbsp;
+                            =data[0].proposer
+                        li
+                            | 조회수&nbsp;
+                            =data[0].hit
+
+                .policy-view-content.mt-4
+                    .title(style='display:flex')
+                        i.fa.fa-newspaper.fa-2x.mr-2(aria-hidden='true')
+                        h3 정책내용
+                    p.font-family-NanumBarunGothic
+                        if (data[0].promise_content !== '')
+                            =data[0].promise_content
+                        else
+                            | 정책 내용이 입력되지 않았습니다.
+                .policy-view-content.mt-4
+                    .title(style='display:flex')
+                        i.fa.fa-newspaper.fa-2x.mr-2(aria-hidden='true')
+                        h3 정책평가
+                    if(data[0].authId)
+                        ul
+                            for evalData in data
+                                li.highlight-content-box.mt-2
+                                    ul.d-flex.justify-content-between
+                                        li
+                                            h5.title
+                                                | 평가자:
+                                                =evalData.displayName
+                                                | |
+                                                | 평가일:
+                                                =formatDate(evalData.eval_date)
+                                        if(user && user.authId == evalData.authId)
+                                            li.font-family-NanumBarunGothic
+                                                | 수정 | 삭제
+                                    .content.font-family-NanumBarunGothic
+                                        =evalData.eval_content
+                                    h5.title.mt-3.mb-1 참고문헌
+                                    ul
+                                        for eval_ref, idx in JSON.parse(evalData.eval_reference)
+                                            li
+                                                a(href=eval_ref.href)
+                                                    =idx + 1
+                                                    | .&nbsp;
+                                                    =eval_ref.title
+                    else
+                        p.font-family-NanumBarunGothic
+                            | 정책이 평가되지 않았습니다.
+                a(href='/policy/list?type=' + type + '&page=' + page).btn.btn-outline-primary.btn-block.mt-3 목록
+            //.col-md-3
+                .highlight-content-box
+                    .highlight-header
+                        .title(style='display:flex')
+                            h2 &#xBA54;&#xB274;
+                    .our-info.mt-3
+                        h5 1.&#xC815;&#xCC45;&#xBD84;&#xB958;
+                        a &#xAD6D;&#xAC00;&#xBCF4;&#xD6C8;
+                        br
+                        a &#xAD6D;&#xBC29;
+                        br
+                        a &#xAD70;&#xBCF5;&#xC9C0;
+                        br
+                        a &#xBCD1;&#xBB34;
+                        br
+                        a &#xC548;&#xBCF4;
+                    .our-info.mt-3
+                        h5 2.&#xC9C0;&#xC5ED;&#xBD84;&#xB958;
+                        a &#xC218;&#xB3C4;&#xAD8C;
+                        br
+                        a &#xAC15;&#xC6D0;&#xB3C4;
+                        br
+                        a &#xCDA9;&#xCCAD;&#xB3C4;
+                        br
+                        a &#xACBD;&#xC0C1;&#xB3C4;
+                        br
+                        a &#xC804;&#xB77C;&#xB3C4;
