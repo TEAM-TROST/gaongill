@@ -70,7 +70,21 @@
     background-color: var(--highlight-box-bg-color);
     padding: 1em;
     position: relative;
+    animation-duration: 1.5s;
+    animation-name: slidein;
 }
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
 
 .highlight-header {
     border-bottom: 2px solid var(--color-trost-normal);
