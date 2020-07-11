@@ -68,7 +68,10 @@ block content
                     else
                         p.font-family-NanumBarunGothic
                             | 정책이 평가되지 않았습니다.
-                a(href='/policy/list?type=' + type + '&page=' + page).btn.btn-outline-primary.btn-block.mt-3 목록
+                .mt-3
+                if(user && user.permission === 'admin')
+                    a(href='#').btn.btn-primary.btn-block 평가 등록
+                a(href='/policy/list?type=' + type + '&page=' + page).btn.btn-outline-secondary.btn-block 목록
             //.col-md-3
                 .highlight-content-box
                     .highlight-header

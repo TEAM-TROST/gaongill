@@ -14,8 +14,6 @@ block content
         .row.mt-3
             .col-md-12
                 .policy-content
-                    if(user && user.permission === 'admin')
-                        a(href='/policy/upload').policy-action.btn.btn-outline-primary 정책 등록
                     ul.policy-header.d-flex.justify-content-between
                         if(type === 2)
                             li

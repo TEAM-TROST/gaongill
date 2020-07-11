@@ -29,7 +29,8 @@ router.get('/view', (req, res, next) => {
             'SELECT ' +
             'L.*,  U.authId, U.user_id, U.displayName, E.eval_content, E.eval_reference, E.eval_date ' +
             'FROM policy_list L LEFT OUTER JOIN policy_evaluation E USING(policy_id) LEFT OUTER JOIN users U USING(user_id) ' +
-            'WHERE L.policy_id=?';
+            'WHERE L.policy_id=? ' +
+            'ORDER BY E.eval_date';
         conn.query(sql, [req.query.id], (err, results) => {
             if (err) console.log(err);
             console.log(results);
