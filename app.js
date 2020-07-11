@@ -31,6 +31,8 @@ app.use(session({
     store: new MySQLStore(MySQLSetting)
 }));
 
+app.locals.pretty = true;
+
 // Middlewares
 const passport = require('./middleware/passport')(app);
 

@@ -1,0 +1,39 @@
+extends layout
+
+block head
+    link(rel='stylesheet' href='/stylesheets/policy.css')
+block content
+    section.hero-section.hero-middle
+        .container(style='height: 100%')
+            .row.justify-content-center.align-items-center(style='height: 100%')
+                .col-md-6
+                    p
+                        | 정직하고 바른 세상을 만드는 길
+                        b &nbsp;가온길
+    section.container
+        .row.mt-3
+            .col-md-12
+                .policy-content
+                    p id:&nbsp;
+                        =data.id
+                    p region::&nbsp;
+                        =data.region
+                    p district:&nbsp;
+                        =data.district
+                    p proposer:&nbsp;
+                        =data.proposer
+                    p party:&nbsp;
+                        =data.party
+                    p promise_field:&nbsp;
+                        =data.promise_field
+                    p promise_content:&nbsp;
+                        =data.promise_content
+                    p promise_progress:&nbsp;
+                        =data.promise_progress
+                    p hit:&nbsp;
+                        =data.hit
+                    p page:&nbsp;
+                        =page
+                    p type:&nbsp;
+                        =type
+                    a(href='/policy/list?type=' + type + '&page=' + page) 목록
