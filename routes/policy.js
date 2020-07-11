@@ -3,6 +3,8 @@ const router = express.Router();
 
 const conn = require('../middleware/db')();
 
+const utilModule = require('./module/util');
+
 router.get('/list', (req, res, next) => {
     let type = 1;
     if (req.query.type && parseInt(req.query.type) !== NaN && (parseInt(req.query.type) == 1 || parseInt(req.query.type) == 2))
@@ -14,19 +16,31 @@ router.get('/list', (req, res, next) => {
 
     const sql = (type === 1)
         ? 'SELECT * FROM policy_list'
-        : 'SELECT * FROM policy_list order by hit DESC, id';
+        : 'SELECT * FROM policy_list order by hit DESC, policy_id';
     conn.query(sql, (err, results) => {
         return res.render('policy-list', {user: req.user, data: results, type: type, page: page});
     });
 });
 
 router.get('/view', (req, res, next) => {
-    const sql = 'UPDATE policy_list SET hit = hit + 1 WHERE id=?';
+    const sql = 'UPDATE policy_list SET hit = hit + 1 WHERE policy_id=?';
     conn.query(sql, [req.query.id], (err, results) => {
-        const sql = 'SELECT * FROM policy_list WHERE id=?';
+        const sql =
+            'SELECT ' +
+            'L.*,  U.authId, U.user_id, U.displayName, E.eval_content, E.eval_reference, E.eval_date ' +
+            'FROM policy_list L LEFT OUTER JOIN policy_evaluation E USING(policy_id) LEFT OUTER JOIN users U USING(user_id) ' +
+            'WHERE L.policy_id=?';
         conn.query(sql, [req.query.id], (err, results) => {
+            if (err) console.log(err);
             console.log(results);
-            return res.render('policy-view', {data: results[0], type: req.query.type, page: req.query.page});
+            // results[0].eval_reference = JSON.parse(results[0].eval_reference);
+            return res.render('policy-view', {
+                user: req.user,
+                data: results,
+                type: req.query.type,
+                page: req.query.page,
+                formatDate: utilModule.formatDate
+            });
         });
     });
 });

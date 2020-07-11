@@ -1,5 +1,5 @@
 .policy-action {
-    
+
 }
 
 .policy-header li {
@@ -44,6 +44,10 @@
     border-bottom: 1px solid var(--highlight-box-border-color);
 }
 
+.policy-list .progress > .progress-bar {
+    /*background-color*/
+}
+
 .policy-item .title {
     color: var(--color-trost-normal);
     margin-bottom: 0;
@@ -57,4 +61,10 @@
 .policy-content > .title {
     color: var(--color-trost-normal);
     border-bottom: 2px solid var(--color-trost-normal);
+}
+
+.policy-view-header {
+    color: var(--color-trost-normal);
+    border-bottom: 3px solid var(--color-trost-normal);
+    padding-bottom: .5em;
 }
