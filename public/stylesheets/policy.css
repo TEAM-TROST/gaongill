@@ -46,9 +46,15 @@
 
 .policy-item .title {
     color: var(--color-trost-normal);
+    margin-bottom: 0;
 }
 
 .policy-item .desc {
     margin: 0;
     color: var(--color-dark-light-gray);
+}
+
+.policy-content > .title {
+    color: var(--color-trost-normal);
+    border-bottom: 2px solid var(--color-trost-normal);
 }

@@ -44,4 +44,5 @@ $(window).on('load', () => {
         $('.army-avatar-info').css('display', 'none');
     });
 
+    $('.highlight-content-box').addClass('transform');
 });
