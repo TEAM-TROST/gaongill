@@ -1,3 +1,5 @@
+if (location.hash === '#_=_') location.replace(location.href.split('#')[0]);
+
 const thousandsSeparators = num => {
     let numParts = num.toString().split('.');
     numParts[0] = numParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -38,19 +40,9 @@ $(window).on('load', () => {
         });
     });
 
-    $.ajax({
-        type: 'GET',
-        url: '/api/kookbangIlbo',
-        dataType: 'JSON'
-    }).then((jsonData) => {
-        for (let i = 0; i < 9; i++) {
-            $('.news > ul').append(`<li><a href='${jsonData[i].url}' target="_blank">${jsonData[i].title}</a></li>`.trim());
-        }
-    });
-    $('#kookbangCarousel > .carousel-inner > .carousel-item:first-child').addClass('active');
-
     $('.army-avatar-info').on('click', function (evt) {
         $('.army-avatar-info').css('display', 'none');
     });
 
+    $('.highlight-content-box').addClass('transform');
 });

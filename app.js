@@ -1,5 +1,10 @@
 const createError = require('http-errors');
+
 const express = require('express');
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
+const MySQLSetting = require('./middleware/secure-configure.json').MySQL;
+
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -19,6 +24,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+    secret: 'GAONGill_By_TROST',
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLStore(MySQLSetting)
+}));
+
+app.locals.pretty = true;
+
+// Middlewares
+const passport = require('./middleware/passport')(app);
 
 // APIs
 app.use('/api', require('./routes/api/kookbangIlbo'));
@@ -26,9 +42,8 @@ app.use('/api', require('./routes/api/kookbangIlbo'));
 // Views
 app.use('/', require('./routes/index'));
 app.use('/about', require('./routes/about'));
-app.use('/signup', require('./routes/signup'));
-app.use('/signin', require('./routes/signin'));
-
+app.use('/auth', require('./routes/auth')(passport));
+app.use('/policy', require('./routes/policy'));
 
 
 // catch 404 and forward to error handler

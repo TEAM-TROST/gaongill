@@ -1,0 +1,32 @@
+extends layout
+
+block head
+    link(rel='stylesheet' href='/vendor/summernote/summernote-bs4.min.css')
+    script(src='/vendor/summernote/summernote-bs4.min.js')
+    script(type='text/javascript').
+        $(window).on('load', function () {
+            $('#summernote').summernote({
+                placeholder: '평가 내용을 입력해주세요.',
+                tabsize: 2,
+                height: 500
+            });
+        });
+    link(rel='stylesheet' href='/stylesheets/policy.css')
+block content
+    section.hero-section.hero-middle
+        .container(style='height: 100%')
+            .row.justify-content-center.align-items-center(style='height: 100%')
+                .col-md-6
+                    p
+                        | 정직하고 바른 세상을 만드는 길
+                        b &nbsp;가온길
+    section.container
+        .row.mt-3
+            .col-md-12
+                .policy-content
+                    .title(style='display:flex').mb-3
+                        i.fa.fa-balance-scale.fa-2x.mr-2
+                        h2 정책 평가
+                    .form-group.input-group
+                        input.form-control(name='title' placeholder='정책 이름')
+                    form#summernote

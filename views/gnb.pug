@@ -17,15 +17,14 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                 a.navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                     | 국방정책
                 .dropdown-menu(aria-labelledby='navbarDropdown')
-                    a.dropdown-item(href='#') 최신 정책 평가
-                    a.dropdown-item(href='#') 인기 정책 보기
+                    a.dropdown-item(href='/policy/list') 정책 평가 목록
+                    .dropdown-divider
                     a.dropdown-item(href='#') 평가 단계별 보기
             li.nav-item.dropdown
                 a.navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                     | 국방예산
                 .dropdown-menu(aria-labelledby='navbarDropdown')
-                    a.dropdown-item(href='#') 예산 날짜별 보기
-                    a.dropdown-item(href='#') 예산 집행 부서별 보기
+                    a.dropdown-item(href='#') 예산 평가 목록
                     .dropdown-divider
                     a.dropdown-item(href='#') 보급품 예산 보기
             li.nav-item.dropdown
@@ -41,11 +40,19 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                 a.nav-link(href='/inquiry')
                     | 기여 신청
         ul.navbar-nav.mb-2.mb-md-0.member-ico
-            li.nav-item.d-flex.justify-content-between.align-items-center.mr-3
-                i.fa.fa-user
-                a.nav-link(href='/signup')
-                    | 회원가입
-            li.nav-item.d-flex.justify-content-between.align-items-center
-                i.fa.fa-sign-in-alt
-                a.nav-link(href='/signin')
-                    | 로그인
+            if user
+                li.nav-item.d-flex.justify-content-between.align-items-center.mr-3
+                    a.nav-link(href='/auth/signout')
+                        i.fa.fa-user.mr-2
+                        | 로그아웃
+                    a.nav-link(href='#')
+                        = user.displayName
+            else
+                li.nav-item.d-flex.justify-content-between.align-items-center.mr-3
+                    a.nav-link(href='/auth/signup')
+                        i.fa.fa-user.mr-2
+                        | 회원가입
+                li.nav-item.d-flex.justify-content-between.align-items-center
+                    a.nav-link(href='/auth/signin')
+                        i.fa.fa-sign-in-alt.mr-2
+                        | 로그인

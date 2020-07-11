@@ -1,14 +1,50 @@
 extends layout
 
 block head
-
+    link(rel='stylesheet' href='/stylesheets/member-total.css')
+    script(src='/javascripts/auth.js')
 block content
-    .hero-section.hero-middle
+    section.hero-section.hero-middle
         .container(style='height: 100%')
-            .row.justify-content-center.align-content-center(style='height: 100%')
+            .row.justify-content-center.align-items-center(style='height: 100%')
                 .col-md-6
                     p
                         | 정직하고 바른 세상을 만드는 길
                         b &nbsp;가온길
     section.container
-        
+        .card.bg-light.mt-3.font-family-NanumBarunGothic
+            article.card-body.mx-auto(style='max-width: 400px;')
+                h4.card-title.mt-3.text-center 로그인
+                p.text-center 가온길에 기여하기 위해선 로그인하셔야 합니다.
+                p
+                    a.btn.btn-block.btn-twitter(href='')
+                        i.fab.fa-twitter
+                        |  &nbsp; 트위터로 로그인
+                    a.btn.btn-block.btn-facebook(href='/auth/facebook')
+                        i.fab.fa-facebook-f
+                        |  &nbsp; 페이스북으로 로그인
+                p.divider-text
+                    span.bg-light OR
+                form(action='/auth/signin' method='post').signin-form
+                    // form-group//
+                    .form-group.input-group
+                        .input-group-prepend
+                            span.input-group-text
+                                i.fa.fa-envelope
+                        input.form-control(name='email' placeholder='이메일 주소' type='email' value=data.email)
+                    // form-group end.//
+                    .form-group.input-group
+                        .input-group-prepend
+                            span.input-group-text
+                                i.fa.fa-lock
+                        input.form-control(name='password' placeholder='비밀번호' type='password')
+                    if (error && error == 1)
+                        p(style='font-size: .8em;color: red;')= message
+                    // form-group//
+                    .form-group
+                        button.btn.btn-primary.btn-block(type='submit')  로그인
+                    // form-group//
+                    p.text-center
+                        | 아직 계정이 없으십니까?
+                        a(href='/auth/signup') &nbsp;회원가입
+        // card.//

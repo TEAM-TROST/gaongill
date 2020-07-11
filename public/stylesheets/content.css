@@ -1,0 +1,39 @@
+/* content */
+.Mainwrapper {
+    margin: 10px;
+    margin-left: 20px;
+    padding: 0;
+}
+
+.headerCol {
+    grid-area: header;
+    background-color: LightSeaGreen;
+}
+
+.leftCol {
+    grid-area: leftCol;
+    background-color: orange;
+}
+
+.midTop {
+    grid-area: midTop;
+    background-color: lightgrey;
+}
+
+.midBottom {
+    grid-area: midBottom;
+    background-color: pink;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 2fr 4fr 4fr;
+    grid-template-rows: 50px 250px 300px;
+    grid-template-areas:
+        "leftCol header header"
+        "leftCol midTop midTop"
+        "leftCol midBottom midBottom";
+    grid-gap: 15px;
+}
+
+/* ---------------------------------- */

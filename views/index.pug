@@ -5,9 +5,9 @@ block head
     script(src='/javascripts/index.js')
 
 block content
-    .hero-section
+    section.hero-section
         .container(style='height: 100%')
-            .row.justify-content-center.align-content-center(style='height: 100%')
+            .row.justify-content-center.align-items-center(style='height: 100%')
                 .col-md-6
                     p
                         | 정직하고 바른 세상을 만드는 길
@@ -60,6 +60,9 @@ block content
                                     i.fa.fa-newspaper.fa-2x.mr-2
                                     h2 국방뉴스
                             ul.highlight-list-content
+                                -for (let index = 0; index < 9; index++)
+                                    li
+                                        a(href=newsData[index].url target='_blank')= newsData[index].title
         .row.mt-3
             article.col-md-6
                 .highlight-content-box
