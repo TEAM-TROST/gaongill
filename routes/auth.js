@@ -155,13 +155,13 @@ module.exports = (passport) => {
         }
         passport.authenticate('local', (err, user, info) => {
             if (err) {
-                return res.status(400).render('signin', {error: 1, message: '가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.', data: req.body});
+                return res.status(400).render('signin', {error: 1, message: '정상적인 경로로 시도해주세요.', data: req.body});
             }
             // Redirect if it fails
             if (!user) {
                 return res.status(400).render('signin', {
                     error: 1,
-                    message: '정상적인 경로로 시도해주세요.',
+                    message: '가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.',
                     data: req.body
                 });
             }

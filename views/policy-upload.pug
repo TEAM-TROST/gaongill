@@ -8,10 +8,14 @@ block head
             $('#summernote').summernote({
                 placeholder: '평가 내용을 입력해주세요.',
                 tabsize: 2,
+                lang: "ko-KR",
+                focus: true,
                 height: 500
             });
+            $('#summernote').summernote('code', $('textarea[name="eval_content"]').val());
         });
     link(rel='stylesheet' href='/stylesheets/policy.css')
+    script(src='/javascripts/policy-upload.js')
 block content
     section.hero-section.hero-middle
         .container(style='height: 100%')
@@ -27,6 +31,56 @@ block content
                     .title(style='display:flex').mb-3
                         i.fa.fa-balance-scale.fa-2x.mr-2
                         h2 정책 평가
-                    .form-group.input-group
-                        input.form-control(name='title' placeholder='정책 이름')
-                    form#summernote
+                    form(method='post' action='/policy/upload' id='eval_form').font-family-NanumBarunGothic
+                        input(type='hidden' name='policy_id' value=id)
+                        input(type='hidden' name='mode' value=mode)
+                        if(page)
+                            input(type='hidden' name='page' value=page)
+                        if(type)
+                            input(type='hidden' name='type' value=type)
+                        if(eid)
+                            input(type='hidden' name='eid' value=eid)
+                        .form-check.form-check-inline
+                            input(type='radio' name='promise_progress' id='progress-0' value='0' checked=(policyData.promise_progress === 0)).form-check-input
+                            label(for='progress-0').form-check-label 평가안됨
+                        .form-check.form-check-inline
+                            input(type='radio' name='promise_progress' id='progress-1' value='25' checked=(policyData.promise_progress === 25)).form-check-input
+                            label(for='progress-1').form-check-label 지체
+                        .form-check.form-check-inline
+                            input(type='radio' name='promise_progress' id='progress-2' value='50' checked=(policyData.promise_progress === 50)).form-check-input
+                            label(for='progress-2').form-check-label 진행중
+                        .form-check.form-check-inline
+                            input(type='radio' name='promise_progress' id='progress-3' value='75' checked=(policyData.promise_progress === 75)).form-check-input
+                            label(for='progress-3').form-check-label 변경
+                        .form-check.form-check-inline
+                            input(type='radio' name='promise_progress' id='progress-4' value='100' checked=(policyData.promise_progress === 100)).form-check-input
+                            label(for='progress-4').form-check-label 완료
+                        .form-group.input-group.mt-2
+                            textarea.form-control(name='promise_content' placeholder='정책 내용' rows='5' style='line-height: 1.5em;')
+                                =policyData.promise_content.replace(/<br\s?\/?>/g, "\n")
+                        .form-group.input-group.m-0
+                            textarea(name='eval_content' style='display:none;')
+                                =eval_content
+                        #summernote
+                        .form-group.input-group.mt-3
+                            input(type='button' value='추가').btn.btn-info#eval_ref_add_btn
+                        #eval_ref_area
+                            if(eval_reference)
+                                for eval_ref in eval_reference
+                                    .form-group.input-group
+                                        .input-group-prepend
+                                            span.input-group-text 제목
+                                        input.form-control(type='text' name='eval_ref_title' value=eval_ref.title)
+                                        .input-group-prepend
+                                            span.input-group-text URL
+                                        input.form-control(type='text' name='eval_ref_href' value=eval_ref.href)
+
+                        .form-group.input-group
+                            input(type='submit' value='평가 등록').btn.btn-primary.btn-block.mt-3#eval_submit
+                        .form-group.input-group
+                            -let url = '/policy/view?'
+                            -if (mode) url += 'mode=' + mode + '&'
+                            -if (type) url += 'type=' + type + '&'
+                            -if (page) url += 'page=' + page + '&'
+                            -url += 'id=' + id
+                            a(href=url).btn.btn-outline-secondary.btn-block 등록 취소

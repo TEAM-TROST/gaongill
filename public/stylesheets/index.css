@@ -102,11 +102,17 @@
 
 .highlight-list-content > li > a {
     cursor: pointer;
-    font-weight: bold;
+    /*font-weight: bold;*/
     letter-spacing: 1px;
     line-height: 100%;
     text-transform: none;
     vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    display: inherit;
+    padding: .1em;
 }
 
 .highlight-list-content > li > a:not(:hover) {
@@ -120,5 +126,5 @@
     position: absolute;
     opacity: 0.4;
     left: 6px;
-    top: 1.4em;
+    /*top: 1.4em;*/
 }

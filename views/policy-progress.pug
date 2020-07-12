@@ -15,22 +15,67 @@ block content
             .col-md-12
                 .policy-content
                     ul.policy-header.d-flex.justify-content-between
-                        if(type === 2)
+                        if(type === 5)
                             li
-                                a(href='/policy/list?type=1') 최신 평가 정책
+                                a(href='/policy/progress?type=1') 평가안됨
+                            li
+                                a(href='/policy/progress?type=2') 지체
+                            li
+                                a(href='/policy/progress?type=3') 진행중
+                            li
+                                a(href='/policy/progress?type=4') 변경
                             li.active
-                                a(href='/policy/list?type=2') 인기 정책
+                                a(href='/policy/progress?type=5') 완료
+                        else if(type === 4)
+                            li
+                                a(href='/policy/progress?type=1') 평가안됨
+                            li
+                                a(href='/policy/progress?type=2') 지체
+                            li
+                                a(href='/policy/progress?type=3') 진행중
+                            li.active
+                                a(href='/policy/progress?type=4') 변경
+                            li
+                                a(href='/policy/progress?type=5') 완료
+                        else if(type === 3)
+                            li
+                                a(href='/policy/progress?type=1') 평가안됨
+                            li
+                                a(href='/policy/progress?type=2') 지체
+                            li.active
+                                a(href='/policy/progress?type=3') 진행중
+                            li
+                                a(href='/policy/progress?type=4') 변경
+                            li
+                                a(href='/policy/progress?type=5') 완료
+                        else if(type === 2)
+                            li
+                                a(href='/policy/progress?type=1') 평가안됨
+                            li.active
+                                a(href='/policy/progress?type=2') 지체
+                            li
+                                a(href='/policy/progress?type=3') 진행중
+                            li
+                                a(href='/policy/progress?type=4') 변경
+                            li
+                                a(href='/policy/progress?type=5') 완료
                         else
                             li.active
-                                a(href='/policy/list?type=1') 최신 평가 정책
+                                a(href='/policy/progress?type=1') 평가안됨
                             li
-                                a(href='/policy/list?type=2') 인기 정책
+                                a(href='/policy/progress?type=2') 지체
+                            li
+                                a(href='/policy/progress?type=3') 진행중
+                            li
+                                a(href='/policy/progress?type=4') 변경
+                            li
+                                a(href='/policy/progress?type=5') 완료
                     .policy-list
                         ul
                             -for (let idx = (page - 1) * 10; idx < page * 10; idx++)
                                 if(data[idx])
                                     li.policy-item
-                                        a(href='/policy/view?mode=list&id=' + data[idx].policy_id + '&type=' + type + '&page=' + page)
+                                        a(href='/policy/view?mode=progress&id=' + data[idx].policy_id + '&type=' + type + '&page=' + page)
                                             h3.title= data[idx].promise_title
                                             p.desc.font-family-NanumBarunGothic
                                                 = data[idx].promise_field
@@ -73,27 +118,27 @@ block content
                                 -let lastpage = parseInt(data.length / 10) + 1;
                                 if(idx > 5)
                                     li.page-item
-                                        a.page-link(href='/policy/list?type=' + type + '&page=1' aria-label='Previous')
+                                        a.page-link(href='/policy/progress?type=' + type + '&page=1' aria-label='Previous')
                                             span(aria-hidden='true') &laquo;
                                             span.sr-only First
                                     li.page-item
-                                        a.page-link(href='/policy/list?type=' + type + '&page=' + (parseInt(idx / 5) * 5) aria-label='Previous')
+                                        a.page-link(href='/policy/progress?type=' + type + '&page=' + (parseInt(idx / 5) * 5) aria-label='Previous')
                                             span(aria-hidden='true') &lt;
                                             span.sr-only Previous
                                 -for (; idx <= end; idx++)
                                     if(idx <= lastpage)
                                         if (idx === page)
                                             li.page-item.active
-                                                a.page-link(href='/policy/list?type=' + type + '&page=' + idx)= idx
+                                                a.page-link(href='/policy/progress?type=' + type + '&page=' + idx)= idx
                                         else
                                             li.page-item
-                                                a.page-link(href='/policy/list?type=' + type + '&page=' + idx)= idx
+                                                a.page-link(href='/policy/progress?type=' + type + '&page=' + idx)= idx
                                 if(idx <= lastpage / 5 * 5)
                                     li.page-item
-                                        a.page-link(href='/policy/list?type=' + type + '&page=' + (parseInt(idx / 5) * 5 + 1) aria-label='Next')
+                                        a.page-link(href='/policy/progress?type=' + type + '&page=' + (parseInt(idx / 5) * 5 + 1) aria-label='Next')
                                             span(aria-hidden='true') &gt;
                                             span.sr-only Next
                                     li.page-item
-                                        a.page-link(href='/policy/list?type=' + type + '&page=' + lastpage aria-label='Next')
+                                        a.page-link(href='/policy/progress?type=' + type + '&page=' + lastpage aria-label='Next')
                                             span(aria-hidden='true') &raquo;
                                             span.sr-only Last
