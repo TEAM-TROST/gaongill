@@ -2,6 +2,16 @@ extends layout
 
 block head
     link(rel='stylesheet' href='/stylesheets/policy.css')
+    script(type='text/javascript').
+        $(window).on('load', function () {
+            $('.eval-action-form').on('submit', function (evt) {
+                if (confirm('평가를 삭제하시겠습니까?')) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+        });
 block content
     section.hero-section.hero-middle
         .container(style='height: 100%')
@@ -26,24 +36,55 @@ block content
                         li
                             | 조회수&nbsp;
                             =data[0].hit
-
                 .policy-view-content.mt-4
+                    .title(style='display:flex')
+                        i.fa.fa-list.fa-2x.mr-2(aria-hidden='true')
+                        h3 정책 진행 단계
+                    .progress.mt-3(style='height: 1.75em;')
+                        .progress-bar.progress-bar-striped.progress-bar-animated.bg-success(role='progressbar' aria-valuemin='0' aria-valuemax='100' aria-valuenow=data[0].promise_progress style='width:' + data[0].promise_progress + '%')
+                    ul.list-inline.d-flex.justify-content-between
+                        li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                            if (data[0].promise_progress === 0)
+                                small.text-success.font-weight-bold 평가안됨
+                            else
+                                small 평가안됨
+                        li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                            if (data[0].promise_progress === 25)
+                                small.text-success.font-weight-bold 지체
+                            else
+                                small 지체
+                        li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                            if (data[0].promise_progress === 50)
+                                small.text-success.font-weight-bold 진행중
+                            else
+                                small 진행중
+                        li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                            if (data[0].promise_progress === 75)
+                                small.text-success.font-weight-bold 변경
+                            else
+                                small 변경
+                        li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                            if (data[0].promise_progress === 100)
+                                small.text-success.font-weight-bold 완료
+                            else
+                                small 완료
+                .policy-view-content.mt-3
                     .title(style='display:flex')
                         i.fa.fa-newspaper.fa-2x.mr-2(aria-hidden='true')
                         h3 정책내용
                     p.font-family-NanumBarunGothic
                         if (data[0].promise_content !== '')
-                            =data[0].promise_content
+                            !=data[0].promise_content
                         else
                             | 정책 내용이 입력되지 않았습니다.
-                .policy-view-content.mt-4
+                .policy-view-content.mt-3
                     .title(style='display:flex')
-                        i.fa.fa-newspaper.fa-2x.mr-2(aria-hidden='true')
+                        i.fa.fa-user-edit.fa-2x.mr-2(aria-hidden='true')
                         h3 정책평가
                     if(data[0].authId)
                         ul
                             for evalData in data
-                                li.highlight-content-box.mt-2
+                                li.highlight-content-box.policy-eval-box.mt-2
                                     ul.d-flex.justify-content-between
                                         li
                                             h5.title
@@ -53,25 +94,47 @@ block content
                                                 | 평가일:
                                                 =formatDate(evalData.eval_date)
                                         if(user && user.authId == evalData.authId)
-                                            li.font-family-NanumBarunGothic
-                                                | 수정 | 삭제
+                                            li.font-family-NanumBarunGothic.action-btn
+                                                -let url = '/policy/upload?'
+                                                -if (type) url += 'type=' + type + '&'
+                                                -if (page) url += 'page=' + page + '&'
+                                                -url += 'id=' + data[0].policy_id + '&'
+                                                -url += 'eid=' + evalData.eval_id
+                                                form(action='/policy/delete' method='post').eval-action-form
+                                                    input(type='hidden' name='eid' value=evalData.eval_id)
+                                                    a(href=url).btn 수정
+                                                    | |
+                                                    input(type='submit' value='삭제').btn
                                     .content.font-family-NanumBarunGothic
-                                        =evalData.eval_content
-                                    h5.title.mt-3.mb-1 참고문헌
-                                    ul
-                                        for eval_ref, idx in JSON.parse(evalData.eval_reference)
-                                            li
-                                                a(href=eval_ref.href)
-                                                    =idx + 1
-                                                    | .&nbsp;
-                                                    =eval_ref.title
+                                        !=evalData.eval_content
+                                    if(JSON.parse(evalData.eval_reference)[0])
+                                        h5.title.mt-3.mb-1 참고문헌
+                                        ul
+                                            for eval_ref, idx in JSON.parse(evalData.eval_reference)
+                                                li.font-family-NanumBarunGothic
+                                                    a(href=eval_ref.href target='_blank')
+                                                        =idx + 1
+                                                        | .&nbsp;
+                                                        =eval_ref.title
                     else
                         p.font-family-NanumBarunGothic
                             | 정책이 평가되지 않았습니다.
                 .mt-3
                 if(user && user.permission === 'admin')
-                    a(href='#').btn.btn-primary.btn-block 평가 등록
-                a(href='/policy/list?type=' + type + '&page=' + page).btn.btn-outline-secondary.btn-block 목록
+                    -let url = '/policy/upload?';
+                    -if (mode) url += 'mode=' + mode + '&'
+                    -if (type) url += 'type=' + type + '&'
+                    -if (page) url += 'page=' + page + '&'
+                    -url += 'id=' + data[0].policy_id
+                    a(href=url).btn.btn-primary.btn-block.font-family-NanumBarunGothic 평가 등록
+                -let url = '';
+                if(mode === 'progress')
+                    -url = '/policy/progress?'
+                else
+                    -url = '/policy/list?'
+                -if (type) url += 'type=' + type + '&'
+                -if (page) url += 'page=' + page
+                a(href=url).btn.btn-outline-secondary.btn-block.font-family-NanumBarunGothic 목록
             //.col-md-3
                 .highlight-content-box
                     .highlight-header

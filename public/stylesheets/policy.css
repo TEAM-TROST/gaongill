@@ -68,3 +68,11 @@
     border-bottom: 3px solid var(--color-trost-normal);
     padding-bottom: .5em;
 }
+
+.policy-view-content > .title {
+    color: var(--color-trost-normal);
+}
+
+.policy-eval-box > .content > p {
+    margin-bottom: 0;
+}
