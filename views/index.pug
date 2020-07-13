@@ -21,10 +21,10 @@ block content
             .col-md-4
                 .highlight-content-box
                     .highlight-header
-                        .title(style='display:flex')
+                        .title.d-flex
                             i.fa.fa-tshirt.fa-2x.mr-2
                             h2 보급품
-                        a.notice-more(href='/') 더보기
+                        a.notice-more(href='/budget/supply') 더보기
                     .army-avatar-section
                         include /public/images/rok-army-character-removebg-dot.svg
                     .army-avatar-info
@@ -46,7 +46,7 @@ block content
                     .col-md-12
                         .highlight-content-box
                             .highlight-header
-                                .title(style='display:flex')
+                                .title.d-flex
                                     i.fa.fa-pencil-alt.fa-2x.mr-2
                                     h2 소개
                             .our-info.mt-3.font-family-NanumBarunGothic
@@ -56,7 +56,7 @@ block content
                     .col-md-12.mt-3
                         .highlight-content-box.news
                             .highlight-header
-                                .title(style='display:flex')
+                                .title.d-flex
                                     i.fa.fa-newspaper.fa-2x.mr-2
                                     h2 국방뉴스
                             ul.highlight-list-content
@@ -68,10 +68,10 @@ block content
             article.col-md-6
                 .highlight-content-box
                     .highlight-header
-                        .title(style='display:flex')
+                        .title.d-flex
                             i.fa.fa-balance-scale.fa-2x.mr-2
                             h2 정책 평가
-                        a.notice-more(href='/') 더보기
+                        a.notice-more(href='/policy/list') 더보기
                     ul.highlight-list-content
                         -for (let idx = 0; idx < 5; idx++)
                                     li.font-family-NanumBarunGothic
@@ -80,13 +80,13 @@ block content
             article.col-md-6
                 .highlight-content-box
                     .highlight-header
-                        .title(style='display:flex')
+                        .title.d-flex
                             i.fa.fa-hand-holding-usd.fa-2x.mr-2
                             h2 예산 평가
-                        a.notice-more(href='/') 더보기
+                        a.notice-more(href='/budget/list') 더보기
                     ul.highlight-list-content
-                        -for (let idx = 0; idx < 5; idx++)
-                                    li.font-family-NanumBarunGothic
-                                        a(href='/')
-                                            =policyData[idx].promise_title
+                        for budgetItem in budgetData
+                            li.font-family-NanumBarunGothic
+                                a(href='/')
+                                    =budgetItem.bidNm + ' ' + budgetItem.pblancSe
 

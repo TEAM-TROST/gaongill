@@ -1,0 +1,69 @@
+extends layout
+
+block head
+    link(rel='stylesheet' href='/stylesheets/about-budget.css')
+    script(type='text/javascript').
+        $(window).on('load', function () {
+            $('.eval-action-form').on('submit', function (evt) {
+                return confirm('평가를 삭제하시겠습니까?');
+            });
+        });
+block content
+    section.hero-section.hero-middle
+        .container(style='height: 100%')
+            .row.justify-content-center.align-items-center(style='height: 100%')
+                .col-md-6
+                    p
+                        | 정직하고 바른 세상을 만드는 길
+                        b &nbsp;가온길
+    section.container
+        .row.mt-4
+            .col-md-12
+                .budget-view-header
+                    .title
+                        h2=budgetDetail.bidNm
+                    .font-family-NanumBarunGothic
+                        | 예산&nbsp;:&nbsp;
+                        =budgetDetail.budgetAmount
+                        | 원
+                .budget-view-content.mt-4
+                    .title.d-flex
+                        i.fa.fa-user-edit.fa-2x.mr-2(aria-hidden='true')
+                        h3 예산평가
+                    if(data && data[0] && data[0].authId)
+                        ul
+                            for evalData in data
+                                li.highlight-content-box.budget-eval-box.mt-2
+                                    ul.d-flex.justify-content-between.align-items-center
+                                        li
+                                            h5.title
+                                                | 평가자:
+                                                =evalData.displayName
+                                                | |
+                                                | 평가일:
+                                                =formatDate(evalData.eval_date)
+                                        if(user && user.authId == evalData.authId)
+                                            li.font-family-NanumBarunGothic.action-btn
+                                                form(action='/budget/delete' method='post').eval-action-form
+                                                    input(type='hidden' name='eid' value=evalData.eval_id)
+                                                    a(href=`/budget/upload?bid=${budget_id}&eid=${evalData.eval_id}&demandYear=${demandYear}&orntCode=${orntCode}&dcsNo=${dcsNo}&pblancNo=${pblancNo}&pblancOdr=${pblancOdr}`).btn 수정
+                                                    | |
+                                                    input(type='submit' value='삭제').btn
+                                    .content.font-family-NanumBarunGothic
+                                        !=evalData.eval_content
+                                    if(JSON.parse(evalData.eval_reference)[0])
+                                        h5.title.mt-3.mb-1 참고문헌
+                                        ul
+                                            for eval_ref, idx in JSON.parse(evalData.eval_reference)
+                                                li.font-family-NanumBarunGothic
+                                                    a(href=eval_ref.href target='_blank')
+                                                        =idx + 1
+                                                        | .&nbsp;
+                                                        =eval_ref.title
+                    else
+                        p.font-family-NanumBarunGothic
+                            | 예산이 평가되지 않았습니다.
+                .mt-3
+                if(user && user.permission === 'admin')
+                    a(href=`/budget/upload?bid=${budget_id}&dcsNo=${dcsNo}&demandYear=${demandYear}&orntCode=${orntCode}&pblancNo=${pblancNo}&pblancOdr=${pblancOdr}`).btn.btn-primary.btn-block.font-family-NanumBarunGothic 평가 등록
+                a(href='/budget/list').btn.btn-outline-secondary.btn-block.font-family-NanumBarunGothic 목록
