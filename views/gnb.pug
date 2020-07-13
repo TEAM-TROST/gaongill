@@ -27,7 +27,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                     a.dropdown-item(href='#') 예산 평가 목록
                     .dropdown-divider
                     a.dropdown-item(href='#') 보급품 예산 보기
-            li.nav-item.dropdown
+            //li.nav-item.dropdown
                 a.navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                     | 국방뉴스
                 .dropdown-menu(aria-labelledby='navbarDropdown')
@@ -37,8 +37,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                     a.dropdown-item(href='#') 병무 분야
                     a.dropdown-item(href='#') 국가보훈 분야
             li.nav-item
-                a.nav-link(href='/inquiry')
+                a.nav-link(href='/commit')
                     | 기여 신청
+        form
+            input.form-control.mr-md-2(type='search' placeholder='검색' aria-label='Search' style='width: 15em;')
         ul.navbar-nav.mb-2.mb-md-0.member-ico
             if user
                 li.nav-item.d-flex.justify-content-between.align-items-center.mr-3

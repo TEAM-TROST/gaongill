@@ -44,6 +44,7 @@ app.use('/', require('./routes/index'));
 app.use('/about', require('./routes/about'));
 app.use('/auth', require('./routes/auth')(passport));
 app.use('/policy', require('./routes/policy'));
+app.use('/commit', require('./routes/commit'));
 
 
 // catch 404 and forward to error handler

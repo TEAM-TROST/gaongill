@@ -51,12 +51,12 @@ block content
                             span.input-group-text
                                 i.fa.fa-building
                         select.form-control(name='job')
-                            option(value='notselect' selected=data.job==='noselect') 직업 선택
-                            option(value='developer' selected=data.job==='developer') 개발자
-                            option(value='designer' selected=data.job==='designer') 디자이너
-                            option(value='civic' selected=data.job==='civic') 시민 활동가
-                            option(value='student' selected=data.job==='student') 학생
-                            option(value='other' selected=data.job==='other') 그 외
+                            option(value='notselect' selected=data.job === 'noselect') 직업 선택
+                            option(value='developer' selected=data.job === 'developer') 개발자
+                            option(value='designer' selected=data.job === 'designer') 디자이너
+                            option(value='civic' selected=data.job === 'civic') 시민 활동가
+                            option(value='student' selected=data.job === 'student') 학생
+                            option(value='other' selected=data.job === 'other') 그 외
                     // form-group end.//
                     .form-group.input-group
                         .input-group-prepend
