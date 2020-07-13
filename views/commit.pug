@@ -1,0 +1,39 @@
+extends layout
+
+block head
+    link(rel='stylesheet' href='/stylesheets/index.css')
+    script(src='/javascripts/index.js')
+
+block content
+    section.hero-section.hero-middle
+        .container(style='height: 100%')
+            .row.justify-content-center.align-items-center(style='height: 100%')
+                .col-md-6
+                    p
+                        | 정직하고 바른 세상을 만드는 길
+                        b &nbsp;가온길
+    section.container
+        .card.bg-light.mt-3.font-family-NanumBarunGothic
+            article.card-body.mx-auto(style='max-width: 600px;')
+                h4.card-title.mt-3.text-center 기여신청
+                p.text-center 아래 폼을 작성·제출해주세요.
+                form(action='/commit' method='post')
+                    input(type='hidden' name='user_id' value=user.user_id)
+                    .form-group.input-group
+                        .input-group-prepend
+                            span.input-group-text
+                                i.fa.fa-user
+                        input.form-control(name='name' placeholder='이름' type='text' value=user.name readonly='readonly')
+                    .form-group.input-group
+                        .input-group-prepend
+                            span.input-group-text
+                                i.fa.fa-envelope
+                        input.form-control(name='email' placeholder='이메일 주소' type='email' value=user.email readonly='readonly')
+                    .form-group.input-group
+                        textarea.form-control(name='commit_content' placeholder='기여신청 사유(목적, 동기 등)' rows='10' cols='100' style='line-height: 1.5em;')
+                    if (error && error == 1)
+                        p(style='font-size: .8em;color: red;')= message
+                    // form-group//
+                    .form-group
+                        button.btn.btn-primary.btn-block(type='submit') 기여신청
+
