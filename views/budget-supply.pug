@@ -1,0 +1,56 @@
+extends layout
+
+block head
+    link(rel='stylesheet' href='/stylesheets/about-budget.css')
+    link(rel='stylesheet' href='/vendor/dataTables.bootstrap4.min.css')
+    script(src='/vendor/jquery.dataTables.min.js')
+    script(src='/vendor/dataTables.bootstrap4.min.js')
+    script(type='text/javascript').
+        function thousandsSeparators(num) {
+            let numParts = num.toString().split('.');
+            numParts[0] = numParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            return numParts.join('.');
+        };
+        $(window).on('load', function () {
+            $('#supplyDataTable tbody tr td:nth-child(3), #supplyDataTable tbody tr td:nth-child(5)').each(function (val, idx) {
+                $(this).text(thousandsSeparators($(this).text()));
+            });
+            $('#supplyDataTable').DataTable({
+                "scrollX": true,
+                "columns": [
+                    {"width": "10%"},
+                    {"width": "50%"},
+                    {"width": "15%"},
+                    {"width": "10%"},
+                    {"width": "15%"}
+                ]
+            });
+            // $('.dataTables_length').addClass('bs-select');
+        });
+block content
+    section.hero-section.hero-middle
+        .container(style='height: 100%')
+            .row.justify-content-center.align-items-center(style='height: 100%')
+                .col-md-6
+                    p
+                        | 정직하고 바른 세상을 만드는 길
+                        b &nbsp;가온길
+    section.container
+        .row.mt-5
+            .col-md-12
+                table.table.table-striped.table-bordered.text-center#supplyDataTable(style='width:100%')
+                    thead
+                        tr
+                            th 번호
+                            th 이름
+                            th 단가
+                            th 수량
+                            th 총액
+                    tbody.font-family-NanumBarunGothic
+                        for supplyItem,idx in JSON.parse(supplyData)
+                            tr
+                                td(style='vertical-align: middle;')=idx + 1
+                                td(style='vertical-align: middle;')=supplyItem.itmnm
+                                td(style='vertical-align: middle;')=supplyItem.unit_price + '원'
+                                td(style='vertical-align: middle;')=supplyItem.unit
+                                td(style='vertical-align: middle;')=supplyItem.total_price + '원'

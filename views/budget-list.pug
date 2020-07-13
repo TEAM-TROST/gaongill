@@ -1,0 +1,62 @@
+extends layout
+
+block head
+    link(rel='stylesheet' href='/stylesheets/about-budget.css')
+    link(rel='stylesheet' href='/vendor/dataTables.bootstrap4.min.css')
+    script(src='/vendor/jquery.dataTables.min.js')
+    script(src='/vendor/dataTables.bootstrap4.min.js')
+    script(type='text/javascript').
+        function thousandsSeparators(num) {
+            let numParts = num.toString().split('.');
+            numParts[0] = numParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            return numParts.join('.');
+        };
+        $(window).on('load', function () {
+            // $('#supplyDataTable tbody tr td:nth-child(3), #supplyDataTable tbody tr td:nth-child(5)').each(function (val, idx) {
+            //     $(this).text(thousandsSeparators($(this).text()));
+            // });
+            $('#budgetDataTable').DataTable({
+                "scrollX": true,
+                //     // "columns": [
+                //     //     {"width": "10%"},
+                //     //     {"width": "25%"},
+                //     //     {"width": "15%"},
+                //     //     {"width": "10%"},
+                //     //     {"width": "15%"},
+                //     //     {"width": "25%"},
+                //     // ]
+            });
+            // $('.dataTables_length').addClass('bs-select');
+        });
+block content
+    section.hero-section.hero-middle
+        .container(style='height: 100%')
+            .row.justify-content-center.align-items-center(style='height: 100%')
+                .col-md-6
+                    p
+                        | 정직하고 바른 세상을 만드는 길
+                        b &nbsp;가온길
+    section.container
+        .row.mt-5
+            .col-md-12
+                table.table.table-striped.table-bordered.font-family-NanumBarunGothic.text-center#budgetDataTable(style='width: 100%;')
+                    thead
+                        tr
+                            th 번호
+                            th 공고구분
+                            th 입찰/협상건멸
+                            th 개찰/협상일시
+                            th 결과
+                            th 평가
+                            th 세부정보
+                    tbody
+                        for budgetItem, idx in budgetList
+                            tr
+                                td(style='vertical-align: middle;')=idx + 1
+                                td(style='vertical-align: middle;')=budgetItem.pblancSe
+                                td(style='vertical-align: middle;')=budgetItem.bidNm
+                                td(style='vertical-align: middle;')=budgetItem.opengDt.toString().substr(0, 4) + '-' + budgetItem.opengDt.toString().substr(4, 2) + '-' + budgetItem.opengDt.toString().substr(6, 2) + ' ' + budgetItem.opengDt.toString().substr(8, 2) + ':' + budgetItem.opengDt.toString().substr(10, 2)
+                                td(style='vertical-align: middle;')=budgetItem.bidResult
+                                td(style='vertical-align: middle;')=budgetItem.eval_cnt
+                                td(style='vertical-align: middle;')
+                                    a(href=`/budget/view?demandYear=${budgetItem.demandYear}&orntCode=${budgetItem.orntCode}&dcsNo=${budgetItem.dcsNo}&pblancNo=${budgetItem.pblancNo}&pblancOdr=${budgetItem.pblancOdr}`).btn.btn-primary.btn-sm 바로가기

@@ -1,0 +1,65 @@
+extends layout
+
+block head
+    link(rel='stylesheet' href='/vendor/summernote/summernote-bs4.min.css')
+    script(src='/vendor/summernote/summernote-bs4.min.js')
+    script(type='text/javascript').
+        $(window).on('load', function () {
+            $('#summernote').summernote({
+                placeholder: '평가 내용을 입력해주세요.',
+                tabsize: 2,
+                lang: "ko-KR",
+                focus: true,
+                height: 500
+            });
+            $('#summernote').summernote('code', $('textarea[name="eval_content"]').val());
+        });
+    link(rel='stylesheet' href='/stylesheets/policy.css')
+    script(src='/javascripts/policy-upload.js')
+block content
+    section.hero-section.hero-middle
+        .container(style='height: 100%')
+            .row.justify-content-center.align-items-center(style='height: 100%')
+                .col-md-6
+                    p
+                        | 정직하고 바른 세상을 만드는 길
+                        b &nbsp;가온길
+    section.container
+        .row.mt-3
+            .col-md-12
+                .policy-content
+                    .title.d-flex.mb-3
+                        i.fa.fa-balance-scale.fa-2x.mr-2
+                        h2 예산 평가
+                    form(method='post' action='/budget/upload' id='eval_form').font-family-NanumBarunGothic
+                        input(type='hidden' name='bid' value=bid)
+                        input(type='hidden' name='eid' value=eid)
+                        input(type='hidden' name='demandYear' value=demandYear)
+                        input(type='hidden' name='orntCode' value=orntCode)
+                        input(type='hidden' name='dcsNo' value=dcsNo)
+                        input(type='hidden' name='pblancNo' value=pblancNo)
+                        input(type='hidden' name='pblancOdr' value=pblancOdr)
+                        textarea(name='promise_content' style='display:none;' disabled='disabled')
+                        .form-group.input-group.m-0
+                            textarea(name='eval_content' style='display:none;')
+                                =eval_content
+                        #summernote
+                        .form-group.input-group.mt-3
+                            input(type='button' value='추가').btn.btn-info#eval_ref_add_btn
+                        #eval_ref_area
+                            if(eval_reference)
+                                for eval_ref in eval_reference
+                                    .form-group.input-group
+                                        .input-group-prepend
+                                            span.input-group-text 제목
+                                        input.form-control(type='text' name='eval_ref_title' value=eval_ref.title)
+                                        .input-group-prepend
+                                            span.input-group-text URL
+                                        input.form-control(type='text' name='eval_ref_href' value=eval_ref.href)
+
+                        .form-group.input-group
+                            input(type='submit' value='평가 등록').btn.btn-primary.btn-block.mt-3#eval_submit
+                        .form-group.input-group
+                            -let url = '/budget/view?'
+                            -url += 'bid=' + bid
+                            a(href=`/budget/view?bid=${bid}&demandYear=${demandYear}&orntCode=${orntCode}&dcsNo=${dcsNo}&pblancNo=${pblancNo}&pblancOdr=${pblancOdr}`).btn.btn-outline-secondary.btn-block 등록 취소

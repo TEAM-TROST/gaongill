@@ -31,8 +31,11 @@ block content
                         input.form-control(name='email' placeholder='이메일 주소' type='email' value=user.email readonly='readonly')
                     .form-group.input-group
                         textarea.form-control(name='commit_content' placeholder='기여신청 사유(목적, 동기 등)' rows='10' cols='100' style='line-height: 1.5em;')
-                    if (error && error == 1)
-                        p(style='font-size: .8em;color: red;')= message
+                    if (infoMessage)
+                        if(error === 1)
+                            p(style='font-size: .8em;color: red;')= infoMessage
+                        else
+                            p(style='font-size: .8em;color: blue;')= infoMessage
                     // form-group//
                     .form-group
                         button.btn.btn-primary.btn-block(type='submit') 기여신청

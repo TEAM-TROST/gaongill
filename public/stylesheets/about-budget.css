@@ -1,0 +1,61 @@
+.about h3, .budget h3 {
+    font-size: 1.15em;
+    font-weight: 500;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+    letter-spacing: -0.015em;
+}
+
+.about ul li, .budget ul li {
+    list-style: disc;
+}
+
+.budget h3:before, .about h3:before {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--color-blue-accent);
+    left: 0;
+    bottom: 23px;
+}
+
+.supplyDataTable {
+    max-width: 600px;
+    margin: 0 auto;
+}
+#supplyDataTable th, td {
+    white-space: nowrap;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+    bottom: .5em;
+}
+
+
+.budget-view-header {
+    color: var(--color-trost-normal);
+    border-bottom: 3px solid var(--color-trost-normal);
+    padding-bottom: .5em;
+}
+
+.budget-view-content > .title {
+    color: var(--color-trost-normal);
+}
+
+.budget-eval-box > .content > p {
+    margin-bottom: 0;
+}

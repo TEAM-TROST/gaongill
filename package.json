@@ -17,8 +17,10 @@
     "http-errors": "~1.6.3",
     "https": "^1.0.0",
     "iconv-lite": "^0.6.2",
+    "moment": "^2.27.0",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
+    "nodemailer": "^6.4.10",
     "passport": "^0.4.1",
     "passport-facebook": "^3.0.0",
     "passport-github": "^1.1.0",
@@ -27,6 +29,7 @@
     "pbkdf2-password": "^1.2.1",
     "pug": "2.0.0-beta11",
     "request": "^2.88.2",
+    "sync-mysql": "^3.0.1",
     "validate": "^5.1.0"
   }
 }
