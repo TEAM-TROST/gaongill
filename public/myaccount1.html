@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>가온길</title>
+    <script src="vendor/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/about-budget.css">
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="stylesheets/global-style.css">
+    <link rel="stylesheet" href="stylesheets/variable.css">
+    <script src="https://kit.fontawesome.comeae9183183.js" crossorigin="anonymous"></script>
+</head>
+<link rel="stylesheet" href="stylesheets/policy.css">
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="/"><img class="mnd-logo"
+                src="images/logo/mnd_mark.gif">
+            <!--img(class='brand-logo' src='/images/logo/small.svg')--></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="/about">가온길 소개<span class="sr-only">(About
+                            Us)</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="/general">종합 평가</a></li>
+                <li class="nav-item dropdown"><a class="navbarDropdown nav-link dropdown-toggle" href="#" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">국방정책</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item"
+                            href="/policy/list">정책 평가 목록</a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="/policy/progress">평가 단계별
+                            보기</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"><a class="navbarDropdown nav-link dropdown-toggle" href="#" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">국방예산</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item"
+                            href="/budget/list">예산 평가 목록</a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="/budget/supply">보급품 예산 보기</a>
+                    </div>
+                </li>
+                <!--li.nav-item.dropdown
+          a.navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+              | 국방뉴스
+          .dropdown-menu(aria-labelledby='navbarDropdown')
+              a.dropdown-item(href='#') 전체 보기
+              .dropdown-divider
+              a.dropdown-item(href='#') 군사 분야
+              a.dropdown-item(href='#') 병무 분야
+              a.dropdown-item(href='#') 국가보훈 분야
+          -->
+                <li class="nav-item"><a class="nav-link" href="/commit">기여 신청</a></li>
+            </ul>
+            <form>
+                <input class="form-control mr-md-2" type="search" placeholder="검색" aria-label="Search"
+                    style="width: 15em;">
+            </form>
+            <ul class="navbar-nav mb-2 mb-md-0 member-ico">
+                <li class="nav-item d-flex justify-content-between align-items-center mr-3"><a class="nav-link"
+                        href="/auth/signup"><i class="fa fa-user mr-2"></i>회원가입</a></li>
+                <li class="nav-item d-flex justify-content-between align-items-center"><a class="nav-link"
+                        href="/auth/signin"><i class="fa fa-sign-in-alt mr-2"></i>로그인</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="hero-section hero-middle">
+        <div class="container" style="height: 100%">
+            <div class="row justify-content-center align-items-center" style="height: 100%">
+                <div class="col-md-6">
+                    <p>정직하고 바른 세상을 만드는 길<b>&nbsp;가온길</b></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="policy-content">
+                    <div class="card bg-light mt-3 font-family-NanumBarunGothic">
+                        <article class="card-body mx-auto" style="max-width: 400px;">
+                            <h4 class="card-title mt-3 text-center">비밀번호변경</h4>
+                            <input class="form-control mr-md-2" type="search" placeholder="이전비밀번호" aria-label="Search"
+                                style="width: 20em;">
+                            <br>
+                            <input class="form-control mr-md-2" type="search" placeholder="변경비밀번호" aria-label="Search"
+                                style="width: 20em;">
+                            <br>
+                            <input class="form-control mr-md-2" type="search" placeholder="변경비밀번호" aria-label="Search"
+                                style="width: 20em;">
+                                <br>
+                                <h4 class="card-title mt-3 text-center">닉네임변경</h4>
+                            <input class="form-control mr-md-2" type="search" placeholder="변경할닉네임" aria-label="Search"
+                                style="width: 20em;">
+
+                                <h4 class="card-title mt-3 text-center">직업변경</h4>
+                            <select class="form-control" name="job" style="width: 20em;">
+                                <option value="notselect">직업 선택</option>
+                                <option value="developer">개발자</option>
+                                <option value="designer">디자이너</option>
+                                <option value="civic">시민 활동가</option>
+                                <option value="student">학생</option>
+                                <option value="other">그 외</option>
+                            </select>
+                            <h4 class="card-title mt-3 text-center">캐쉬포인트</h4>
+                            <input class="form-control mr-md-2" type="search" placeholder="포인트" aria-label="Search"
+                                style="width: 20em;">
+                            <br>
+                            <div>
+                                <button class="btn btn-primary btn-block" type="submit"
+                                    style="width: 20em;">저장하기</button>
+                            </div>
+                    </div>
+                    </article>
+                </div>
+
+
+
+            </div>
+        </div>
+        </div>
+    </section>
+    <div class="global-footer">
+        <footer class="container">
+            <div class="row">
+                <div class="col-md-4 global-footer-links">
+                    <h2>가온길</h2>
+                    <ul>
+                        <li><a href="/about">소개</a></li>
+                        <li><a href="/general">종합 평가</a></li>
+                        <li><a href="/inquiry">기여 신청</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 global-footer-social">
+                    <div class="footer-social-wrapper"><a class="facebook" target="_blank"
+                            href="//www.facebook.com/jin.ssssun/"></a><a class="youtube" target="_blank"
+                            href="//www.youtube.com/channel/UCRv6OC1-ePkqm8MLAeyL1hg"></a><a class="instagram"
+                            target="_blank" href="//www.instagram.com/jin__ssssun/"></a></div>
+                </div>
+                <div class="col-md-4 global-footer-legal"><a target="_blank"
+                        href="//caru.bbb.org/caru.aspx?id=1596150491"></a></div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
