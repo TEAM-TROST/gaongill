@@ -17,14 +17,14 @@ block content
                     ul.policy-header.d-flex.justify-content-between
                         if(type === 2)
                             li
-                                a(href='/policy/list?type=1') 최신 평가 정책
+                                a(href='/policy/list?type=1') 최신 평가 공약
                             li.active
-                                a(href='/policy/list?type=2') 인기 정책
+                                a(href='/policy/list?type=2') 인기 공약
                         else
                             li.active
-                                a(href='/policy/list?type=1') 최신 평가 정책
+                                a(href='/policy/list?type=1') 최신 평가 공약
                             li
-                                a(href='/policy/list?type=2') 인기 정책
+                                a(href='/policy/list?type=2') 인기 공약
                     .policy-list
                         ul
                             -for (let idx = (page - 1) * 10; idx < page * 10; idx++)
@@ -67,33 +67,34 @@ block content
                                                     else
                                                         small 완료
                         nav(aria-label='Page navigation example').mt-3
+                            -let plType = (type === 'search') ? 'search?query=' + query + '&type=' + type : 'list?type=' + type;
                             ul.pagination.justify-content-center
                                 -let idx = parseInt((page - 1) / 5) * 5 + 1;
                                 -let end = parseInt((page - 1) / 5) * 5 + 5;
                                 -let lastpage = parseInt(data.length / 10) + 1;
                                 if(idx > 5)
                                     li.page-item
-                                        a.page-link(href='/policy/list?type=' + type + '&page=1' aria-label='Previous')
+                                        a.page-link(href='/policy/' + plType + '&page=1' aria-label='Previous')
                                             span(aria-hidden='true') &laquo;
                                             span.sr-only First
                                     li.page-item
-                                        a.page-link(href='/policy/list?type=' + type + '&page=' + (parseInt(idx / 5) * 5) aria-label='Previous')
+                                        a.page-link(href='/policy/' + plType + '&page=' + (parseInt(idx / 5) * 5) aria-label='Previous')
                                             span(aria-hidden='true') &lt;
                                             span.sr-only Previous
                                 -for (; idx <= end; idx++)
                                     if(idx <= lastpage)
                                         if (idx === page)
                                             li.page-item.active
-                                                a.page-link(href='/policy/list?type=' + type + '&page=' + idx)= idx
+                                                a.page-link(href='/policy/' + plType + '&page=' + idx)= idx
                                         else
                                             li.page-item
-                                                a.page-link(href='/policy/list?type=' + type + '&page=' + idx)= idx
+                                                a.page-link(href='/policy/' + plType + '&page=' + idx)= idx
                                 if(idx <= lastpage / 5 * 5)
                                     li.page-item
-                                        a.page-link(href='/policy/list?type=' + type + '&page=' + (parseInt(idx / 5) * 5 + 1) aria-label='Next')
+                                        a.page-link(href='/policy/' + plType + '&page=' + (parseInt(idx / 5) * 5 + 1) aria-label='Next')
                                             span(aria-hidden='true') &gt;
                                             span.sr-only Next
                                     li.page-item
-                                        a.page-link(href='/policy/list?type=' + type + '&page=' + lastpage aria-label='Next')
+                                        a.page-link(href='/policy/' + plType + '&page=' + lastpage aria-label='Next')
                                             span(aria-hidden='true') &raquo;
                                             span.sr-only Last

@@ -15,9 +15,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                     | 종합 평가
             li.nav-item.dropdown
                 a.navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                    | 국방정책
+                    | 국방 공약
                 .dropdown-menu(aria-labelledby='navbarDropdown')
-                    a.dropdown-item(href='/policy/list') 정책 평가 목록
+                    a.dropdown-item(href='/policy/list') 공약 평가 목록
                     .dropdown-divider
                     a.dropdown-item(href='/policy/progress') 평가 단계별 보기
             li.nav-item.dropdown
@@ -39,8 +39,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
             li.nav-item
                 a.nav-link(href='/commit')
                     | 기여 신청
-        form
-            input.form-control.mr-md-2(type='search' placeholder='검색' aria-label='Search' style='width: 15em;')
+        form.search-action-form(action='/policy/search' method='get')
+            input(type='hidden' name='type' value='search')
+            input(type='hidden' name='query' value='')
+            input.form-control.mr-md-2(name='query-tmp' type='search' placeholder='검색' aria-label='Search' style='width: 15em;')
         ul.navbar-nav.mb-2.mb-md-0.member-ico
             if user
                 li.nav-item.d-flex.justify-content-between.align-items-center.mr-3

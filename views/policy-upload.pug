@@ -30,7 +30,7 @@ block content
                 .policy-content
                     .title.d-flex.mb-3
                         i.fa.fa-balance-scale.fa-2x.mr-2
-                        h2 정책 평가
+                        h2 공약 평가
                     form(method='post' action='/policy/upload' id='eval_form').font-family-NanumBarunGothic
                         input(type='hidden' name='policy_id' value=id)
                         input(type='hidden' name='mode' value=mode)
@@ -56,7 +56,7 @@ block content
                             input(type='radio' name='promise_progress' id='progress-4' value='100' checked=(policyData.promise_progress === 100)).form-check-input
                             label(for='progress-4').form-check-label 완료
                         .form-group.input-group.mt-2
-                            textarea.form-control(name='promise_content' placeholder='정책 내용' rows='5' style='line-height: 1.5em;')
+                            textarea.form-control(name='promise_content' placeholder='공약 내용' rows='5' style='line-height: 1.5em;')
                                 =policyData.promise_content.replace(/<br\s?\/?>/g, "\n")
                         .form-group.input-group.m-0
                             textarea(name='eval_content' style='display:none;')

@@ -39,7 +39,7 @@ block content
                 .policy-view-content.mt-4
                     .title.d-flex
                         i.fa.fa-list.fa-2x.mr-2(aria-hidden='true')
-                        h3 정책 진행 단계
+                        h3 공약 진행 단계
                     .progress.mt-3(style='height: 1.75em;')
                         .progress-bar.progress-bar-striped.progress-bar-animated.bg-success(role='progressbar' aria-valuemin='0' aria-valuemax='100' aria-valuenow=data[0].promise_progress style='width:' + data[0].promise_progress + '%')
                     ul.list-inline.d-flex.justify-content-between
@@ -71,23 +71,23 @@ block content
                 .policy-view-content.mt-3
                     .title.d-flex
                         i.fa.fa-newspaper.fa-2x.mr-2(aria-hidden='true')
-                        h3 정책내용
+                        h3 공약 내용
                     p.font-family-NanumBarunGothic
                         if (data[0].promise_content !== '')
                             !=data[0].promise_content
                         else
-                            | 정책 내용이 입력되지 않았습니다.
+                            | 공약 내용이 입력되지 않았습니다.
                 .policy-view-content.mt-3
                     .title.d-flex
                         i.fa.fa-user-edit.fa-2x.mr-2(aria-hidden='true')
-                        h3 정책평가
+                        h3 공약 평가
                     if(data[0].authId)
                         ul
                             for evalData in data
                                 li.highlight-content-box.policy-eval-box.mt-2
                                     ul.d-flex.justify-content-between.align-items-center
                                         li
-                                            h5.title
+                                            h5.titlew
                                                 | 평가자:
                                                 =evalData.displayName
                                                 | |
@@ -118,7 +118,7 @@ block content
                                                         =eval_ref.title
                     else
                         p.font-family-NanumBarunGothic
-                            | 정책이 평가되지 않았습니다.
+                            | 공약이 평가되지 않았습니다.
                 .mt-3
                 if(user && user.permission === 'admin')
                     -let url = '/policy/upload?';
