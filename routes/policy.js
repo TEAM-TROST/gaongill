@@ -54,6 +54,33 @@ router.get('/progress', (req, res, next) => {
     });
 });
 
+router.get('/search', (req, res, next) => {
+    let type = 'search';
+    let page = 1;
+    if (req.query.page && parseInt(req.query.page) !== NaN && parseInt(req.query.page) > 0)
+        page = parseInt(req.query.page);
+
+    const decodeQuery = decodeURI(req.query.query);
+    const sql =
+        'SELECT ' +
+        'L.* ' +
+        'FROM policy_list L LEFT JOIN  (' +
+        'SELECT * FROM policy_evaluation WHERE isdelete=0) E USING(policy_id) ' +
+        'WHERE L.promise_title LIKE ? ' +
+        'GROUP BY L.policy_id ' +
+        'ORDER BY E.eval_date DESC, L.promise_title';
+    conn.query(sql, ['%' + decodeQuery + '%'], (err, results) => {
+        if (err) console.log(err);
+        return res.render('policy-list', {
+            user: req.user,
+            data: results,
+            type: type,
+            page: page,
+            query: req.query.query
+        });
+    });
+});
+
 router.get('/view', (req, res, next) => {
     const sql = 'UPDATE policy_list SET hit = hit + 1 WHERE policy_id=?';
     conn.query(sql, [req.query.id], (err, results) => {

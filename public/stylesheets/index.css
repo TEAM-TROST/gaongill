@@ -1,8 +1,8 @@
-.hero-section .search-section {
+.hero-section .search-section form {
     display: flex;
 }
 
-.hero-section .search-section > .input-search-ico {
+.hero-section .search-section .input-search-ico {
     color: var(--color-dark-light-gray);
     margin: .5rem 0 0 -3rem;
     z-index: 100;

@@ -24,7 +24,8 @@ router.get('/supply', (req, res, next) => {
 });
 
 router.get('/list', (req, res, next) => {
-    const openDateBegin = moment().subtract(6, 'M').format('YYYYMMDD');
+    // const openDateBegin = moment().subtract(6, 'M').format('YYYYMMDD');
+    const openDateBegin = moment().format('YYYY') + '0101';
     const opengDateEnd = moment().format('YYYYMMDD');
     request(`http://openapi.d2b.go.kr/openapi/service/BidResultInfoService/getDmstcCmpetBidResultList?_type=json&serviceKey=${serviceKey}&opengDateBegin=${openDateBegin}&opengDateEnd=${opengDateEnd}&orntCode=EHD&numOfRows=500&pageNo=1`, (error, response, body) => {
         const item = JSON.parse(body).response.body.items.item;
