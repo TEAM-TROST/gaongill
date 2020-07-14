@@ -18,7 +18,7 @@ router.get('/list', (req, res, next) => {
         ?
         'SELECT ' +
         'L.* ' +
-        'FROM policy_list L LEFT JOIN (' +
+        'FROM policy_list L LEFT JOIN  (' +
         'SELECT * FROM policy_evaluation WHERE isdelete=0) E USING(policy_id) ' +
         'GROUP BY L.policy_id ' +
         'ORDER BY E.eval_date DESC, L.promise_title'

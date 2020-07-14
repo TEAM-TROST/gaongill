@@ -42,6 +42,8 @@ app.use('/api', require('./routes/api/kookbangIlbo'));
 // Views
 app.use('/', require('./routes/index'));
 app.use('/about', require('./routes/about'));
+app.use('/general', require('./routes/general'));
+app.use('/privacy-policy', require('./routes/privacy-policy'));
 app.use('/auth', require('./routes/auth')(passport));
 app.use('/policy', require('./routes/policy'));
 app.use('/budget', require('./routes/budget'));
