@@ -1,0 +1,73 @@
+extends layout
+
+block head
+    script(src='/javascripts/auth.js')
+block content
+    section.hero-section.hero-middle
+        .container(style='height: 100%')
+            .row.justify-content-center.align-items-center(style='height: 100%')
+                .col-md-6
+                    p
+                        | 정직하고 바른 세상을 만드는 길
+                        b &nbsp;가온길
+    section.container
+        .row.mt-5
+            .col-md-12
+                .card.bg-light.mt-3.font-family-NanumBarunGothic
+                    article.card-body.mx-auto(style='max-width: 400px;')
+                        .title
+                            ul.d-flex.justify-content-between.align-items-center
+                                li.d-flex
+                                    i.fa.fa-won-sign.fa-2x.mr-1(aria-hidden='true')
+                                    h2.mb-0
+                                        | 보유 포인트:
+                                li
+                                    h2.mb-0= user.cash
+                        p.divider-text
+                            span.bg-light MORE
+                        form(action='/auth/profile' method='post')
+                            input(type='hidden' name='user_id' value=user.user_id)
+                            input(type='hidden' name='user_auth' value=user.authId.split(':')[0])
+                            input(type='hidden' name='authId' value=user.authId)
+                            input(type='hidden' name='pw_change' id='pw_change_field' value='false')
+                            .form-group.input-group
+                                .input-group-prepend
+                                    span.input-group-text
+                                        i.fa.fa-envelope
+                                input.form-control(name='email' type='text' value=user.email readonly='readonly')
+                            .form-group.input-group
+                                .input-group-prepend
+                                    span.input-group-text
+                                        i.fa.fa-user
+                                input.form-control(type='text' name='displayName' placeholder='닉네임 입력' value=user.displayName disabled=user.password === null)
+                            .form-group.input-group
+                                .input-group-prepend
+                                    span.input-group-text
+                                        i.fa.fa-phone
+                                select.custom-select(style='max-width: 90px;')
+                                    option(selected='') +82
+                                input.form-control(name='phone' placeholder='휴대폰 번호 입력' type='text' value=user.phone)
+                            .form-group.input-group
+                                .input-group-prepend
+                                    span.input-group-text
+                                        i.fa.fa-building
+                                select.form-control(name='job')
+                                    option(value='notselect' selected=user.job === 'noselect') 직업 선택
+                                    option(value='developer' selected=user.job === 'developer') 개발자
+                                    option(value='designer' selected=user.job === 'designer') 디자이너
+                                    option(value='civic' selected=user.job === 'civic') 시민 활동가
+                                    option(value='student' selected=user.job === 'student') 학생
+                                    option(value='other' selected=user.job === 'other') 그 외
+                            if(user.password)
+                                #pw-group
+                                    .form-group.input-group.mb-0
+                                        .input-group-prepend
+                                            span.input-group-text
+                                                i.fa.fa-lock
+                                        input.form-control(name='password' type='password' placeholder='비밀번호 입력')
+                                    small.d-block.mb-2
+                                        a(href='#' style='color:red;' id='pw-change-btn') (비밀번호 변경)
+                            if (error && error == 1)
+                                p(style='font-size: .8em;color: red;')= message
+                            button.btn.btn-primary.btn-block(type='submit' style='width: 20em;')
+                                | 저장하기

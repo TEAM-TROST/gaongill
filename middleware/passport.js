@@ -38,18 +38,16 @@ module.exports = (app) => {
         (username, password, done) => {
             const uname = username;
             const pwd = password;
-            console.log(uname, pwd);
 
             const sql = 'SELECT * FROM users WHERE authId=?';
             conn.query(sql, ['local:' + uname], (err, results) => {
-                console.log(results);
                 if (err || !results[0]) {
                     done('There is no user.');
                 } else {
                     const user = results[0];
                     return hasher({password: pwd, salt: user.salt}, (err, pass, salt, hash) => {
                         if (hash === user.password) {
-                            console.log('LocalStrategy', user);
+                            // console.log('LocalStrategy', user);
                             done(null, user);
                         } else {
                             done(null, false);
@@ -67,12 +65,14 @@ module.exports = (app) => {
             profileFields: ['id', 'email', 'gender', 'link', 'locale', 'name', 'timezone', 'updated_time', 'verified', 'displayName']
         },
         (accessToken, refreshToken, profile, done) => {
-            console.log(profile);
             const authId = 'facebook:' + profile.id;
             const sql = 'SELECT * FROM users WHERE authId=?';
             conn.query(sql, [authId], (err, results) => {
                 if (results.length > 0) {
-                    done(null, results[0]);
+                    const sql = 'UPDATE users SET email=?, name=?, displayName=? WHERE authId=?';
+                    conn.query(sql, [profile.emails[0].value, profile.displayName, profile.displayName, authId], (err, updateRes) => {
+                        done(null, results[0]);
+                    });
                 } else {
                     const newUser = {
                         'authId': authId,

@@ -228,12 +228,23 @@ section.container {
 }
 
 .global-footer-legal a {
-    background-image: url(/images/particle/privacy.png);
+    color: var(--color-dark-light-gray);
     cursor: pointer;
     display: inline-block;
     margin: 0 0.4em 0.5em 0;
-    width: 146px;
-    height: 44px;
+    padding-left: 1em;
+    position: relative;
+    line-height: 100%;
+}
+
+.global-footer-legal a:before {
+    color: var(--color-dark-light-gray);
+    content: "\25B6";
+    font-size: 55%;
+    position: absolute;
+    opacity: 0.4;
+    left: 6px;
+    top: -1px;
 }
 
 .note-editing-area {
@@ -242,4 +253,26 @@ section.container {
 
 .note-editing-area p {
     margin: 0;
+}
+
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;
+    z-index: 2;
+}
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
 }

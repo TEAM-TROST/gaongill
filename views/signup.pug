@@ -69,6 +69,11 @@ block content
                             span.input-group-text
                                 i.fa.fa-lock
                         input.form-control(name='password-repeat' placeholder='비밀번호 재입력' type='password')
+                    .form-group.input-group.ml-4
+                        input(type='checkbox' name='agreement').form-check-input#agreement
+                        label(for='agreement').form-check-label
+                            a(href='/privacy-policy' target='_blank') 개인정보처리방침
+                            | 에 동의하십니까?
                     if (error && error == 1)
                         p(style='font-size: .8em;color: red;')= message
                     // form-group//
