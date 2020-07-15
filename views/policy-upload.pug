@@ -55,6 +55,9 @@ block content
                         .form-check.form-check-inline
                             input(type='radio' name='promise_progress' id='progress-4' value='100' checked=(policyData.promise_progress === 100)).form-check-input
                             label(for='progress-4').form-check-label 완료
+                        .form-check.form-check-inline
+                            input(type='radio' name='promise_progress' id='progress-5' value='125' checked=(policyData.promise_progress === 125)).form-check-input
+                            label(for='progress-5').form-check-label 파기
                         .form-group.input-group.mt-2
                             textarea.form-control(name='promise_content' placeholder='공약 내용' rows='5' style='line-height: 1.5em;')
                                 =policyData.promise_content.replace(/<br\s?\/?>/g, "\n")

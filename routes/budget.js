@@ -18,7 +18,6 @@ const thousandsSeparators = num => {
 
 router.get('/supply', (req, res, next) => {
     request('https://mnd.dataportal.kr/dataset/personal_clothing_for_soldier_2019.json', (error, response, body) => {
-        console.log(body);
         res.render('budget-supply', {user: req.user, supplyData: body});
     });
 });

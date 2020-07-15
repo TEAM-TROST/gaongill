@@ -31,7 +31,7 @@ router.get('/list', (req, res, next) => {
 
 router.get('/progress', (req, res, next) => {
     let type = 1;
-    if (req.query.type && parseInt(req.query.type) !== NaN && [1, 2, 3, 4, 5].includes(parseInt(req.query.type)))
+    if (req.query.type && parseInt(req.query.type) !== NaN && [1, 2, 3, 4, 5, 6].includes(parseInt(req.query.type)))
         type = parseInt(req.query.type);
 
     let page = 1;

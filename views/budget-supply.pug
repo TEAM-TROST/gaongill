@@ -12,6 +12,7 @@ block head
             return numParts.join('.');
         };
         $(window).on('load', function () {
+            $('#totalPriceHeader').text(thousandsSeparators($('#totalPriceHeader').text()) + '원');
             $('#supplyDataTable tbody tr td:nth-child(3), #supplyDataTable tbody tr td:nth-child(5)').each(function (val, idx) {
                 $(this).text(thousandsSeparators($(this).text()));
             });
@@ -38,6 +39,13 @@ block content
     section.container
         .row.mt-5
             .col-md-12
+                -let totalPrice = 0;
+                for supplyItem,idx in JSON.parse(supplyData)
+                    -totalPrice += supplyItem.total_price;
+                .about
+                    h3
+                        | 1인당 보급품 비용 총액:
+                        span#totalPriceHeader= totalPrice
                 table.table.table-striped.table-bordered.text-center#supplyDataTable(style='width:100%')
                     thead
                         tr
