@@ -200,6 +200,10 @@ section.container {
     vertical-align: middle;
 }
 
+.global-footer-links li a:hover {
+    color: var(--color-real-white);
+}
+
 .global-footer-links li a:before {
     color: var(--color-dark-light-gray);
     content: "\25B6";
@@ -218,7 +222,6 @@ section.container {
     display: inline-block;
     margin: 0 0.4em 0.5em 0;
 }
-
 .footer-social-wrapper .youtube {
     background-position: -175px 0;
 }
@@ -235,6 +238,10 @@ section.container {
     padding-left: 1em;
     position: relative;
     line-height: 100%;
+}
+
+.global-footer-legal a:hover {
+    color: var(--color-real-white);
 }
 
 .global-footer-legal a:before {

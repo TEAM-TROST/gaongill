@@ -38,6 +38,7 @@ const passport = require('./middleware/passport')(app);
 
 // APIs
 app.use('/api', require('./routes/api/kookbangIlbo'));
+app.use('/api', require('./routes/api/policyProgressCount'));
 
 // Views
 app.use('/', require('./routes/index'));
@@ -48,6 +49,7 @@ app.use('/auth', require('./routes/auth')(passport));
 app.use('/policy', require('./routes/policy'));
 app.use('/budget', require('./routes/budget'));
 app.use('/commit', require('./routes/commit'));
+app.use('/news', require('./routes/news'));
 
 
 // catch 404 and forward to error handler

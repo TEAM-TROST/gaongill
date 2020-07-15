@@ -15,7 +15,20 @@ block content
             .col-md-12
                 .policy-content
                     ul.policy-header.d-flex.justify-content-between
-                        if(type === 5)
+                        if(type === 6)
+                            li
+                                a(href='/policy/progress?type=1') 평가안됨
+                            li
+                                a(href='/policy/progress?type=2') 지체
+                            li
+                                a(href='/policy/progress?type=3') 진행중
+                            li
+                                a(href='/policy/progress?type=4') 변경
+                            li
+                                a(href='/policy/progress?type=5') 완료
+                            li.active
+                                a(href='/policy/progress?type=6') 파기
+                        else if(type === 5)
                             li
                                 a(href='/policy/progress?type=1') 평가안됨
                             li
@@ -26,6 +39,8 @@ block content
                                 a(href='/policy/progress?type=4') 변경
                             li.active
                                 a(href='/policy/progress?type=5') 완료
+                            li
+                                a(href='/policy/progress?type=6') 파기
                         else if(type === 4)
                             li
                                 a(href='/policy/progress?type=1') 평가안됨
@@ -37,6 +52,8 @@ block content
                                 a(href='/policy/progress?type=4') 변경
                             li
                                 a(href='/policy/progress?type=5') 완료
+                            li
+                                a(href='/policy/progress?type=6') 파기
                         else if(type === 3)
                             li
                                 a(href='/policy/progress?type=1') 평가안됨
@@ -48,6 +65,8 @@ block content
                                 a(href='/policy/progress?type=4') 변경
                             li
                                 a(href='/policy/progress?type=5') 완료
+                            li
+                                a(href='/policy/progress?type=6') 파기
                         else if(type === 2)
                             li
                                 a(href='/policy/progress?type=1') 평가안됨
@@ -59,6 +78,8 @@ block content
                                 a(href='/policy/progress?type=4') 변경
                             li
                                 a(href='/policy/progress?type=5') 완료
+                            li
+                                a(href='/policy/progress?type=6') 파기
                         else
                             li.active
                                 a(href='/policy/progress?type=1') 평가안됨
@@ -70,6 +91,8 @@ block content
                                 a(href='/policy/progress?type=4') 변경
                             li
                                 a(href='/policy/progress?type=5') 완료
+                            li
+                                a(href='/policy/progress?type=6') 파기
                     .policy-list
                         ul
                             -for (let idx = (page - 1) * 10; idx < page * 10; idx++)
@@ -83,34 +106,37 @@ block content
                                                 = data[idx].party
                                                 | &nbsp;|&nbsp;
                                                 = data[idx].proposer
-                                            .progress.mt-3(style='height: 1.75em;')
-                                                .progress-bar.progress-bar-striped.progress-bar-animated.bg-success(role='progressbar' aria-valuemin='0' aria-valuemax='100' aria-valuenow=data[idx].promise_progress style='width:' + data[idx].promise_progress + '%')
-                                            ul.list-inline.d-flex.justify-content-between
-                                                li.list-inline-item.text-muted.font-family-NanumBarunGothic
-                                                    if (data[idx].promise_progress === 0)
-                                                        small.text-success.font-weight-bold 평가안됨
-                                                    else
-                                                        small 평가안됨
-                                                li.list-inline-item.text-muted.font-family-NanumBarunGothic
-                                                    if (data[idx].promise_progress === 25)
-                                                        small.text-success.font-weight-bold 지체
-                                                    else
-                                                        small 지체
-                                                li.list-inline-item.text-muted.font-family-NanumBarunGothic
-                                                    if (data[idx].promise_progress === 50)
-                                                        small.text-success.font-weight-bold 진행중
-                                                    else
-                                                        small 진행중
-                                                li.list-inline-item.text-muted.font-family-NanumBarunGothic
-                                                    if (data[idx].promise_progress === 75)
-                                                        small.text-success.font-weight-bold 변경
-                                                    else
-                                                        small 변경
-                                                li.list-inline-item.text-muted.font-family-NanumBarunGothic
-                                                    if (data[idx].promise_progress === 100)
-                                                        small.text-success.font-weight-bold 완료
-                                                    else
-                                                        small 완료
+                                            if(type !== 6)
+                                                .progress.mt-3(style='height: 1.75em;')
+                                                    .progress-bar.progress-bar-striped.progress-bar-animated.bg-success(role='progressbar' aria-valuemin='0' aria-valuemax='100' aria-valuenow=data[idx].promise_progress style='width:' + data[idx].promise_progress + '%')
+                                                ul.list-inline.d-flex.justify-content-between
+                                                    li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                                                        if (data[idx].promise_progress === 0)
+                                                            small.text-success.font-weight-bold 평가안됨
+                                                        else
+                                                            small 평가안됨
+                                                    li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                                                        if (data[idx].promise_progress === 25)
+                                                            small.text-success.font-weight-bold 지체
+                                                        else
+                                                            small 지체
+                                                    li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                                                        if (data[idx].promise_progress === 50)
+                                                            small.text-success.font-weight-bold 진행중
+                                                        else
+                                                            small 진행중
+                                                    li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                                                        if (data[idx].promise_progress === 75)
+                                                            small.text-success.font-weight-bold 변경
+                                                        else
+                                                            small 변경
+                                                    li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                                                        if (data[idx].promise_progress === 100)
+                                                            small.text-success.font-weight-bold 완료
+                                                        else
+                                                            small 완료
+                                            else
+                                                h4.text-danger.mt-3 파기
                         nav(aria-label='Page navigation example').mt-3
                             ul.pagination.justify-content-center
                                 -let idx = parseInt((page - 1) / 5) * 5 + 1;
