@@ -12,8 +12,17 @@
     border-bottom: 2px solid var(--color-trost-normal);
 }
 
-.policy-header li:first-child a {
+.policy-header li a {
     border-right: 1px solid var(--color-light-gray);
+}
+
+/*.policy-header li.active:not(:first-child):not(:last-child) a {*/
+/*    border-left: 1px solid var(--color-light-gray);*/
+/*    border-right: 1px solid var(--color-light-gray);*/
+/*}*/
+
+.policy-header li:last-child a {
+    border-right: none;
 }
 
 .policy-header li a {
