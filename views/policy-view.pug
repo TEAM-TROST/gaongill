@@ -40,34 +40,37 @@ block content
                     .title.d-flex
                         i.fa.fa-list.fa-2x.mr-2(aria-hidden='true')
                         h3 공약 진행 단계
-                    .progress.mt-3(style='height: 1.75em;')
-                        .progress-bar.progress-bar-striped.progress-bar-animated.bg-success(role='progressbar' aria-valuemin='0' aria-valuemax='100' aria-valuenow=data[0].promise_progress style='width:' + data[0].promise_progress + '%')
-                    ul.list-inline.d-flex.justify-content-between
-                        li.list-inline-item.text-muted.font-family-NanumBarunGothic
-                            if (data[0].promise_progress === 0)
-                                small.text-success.font-weight-bold 평가안됨
-                            else
-                                small 평가안됨
-                        li.list-inline-item.text-muted.font-family-NanumBarunGothic
-                            if (data[0].promise_progress === 25)
-                                small.text-success.font-weight-bold 지체
-                            else
-                                small 지체
-                        li.list-inline-item.text-muted.font-family-NanumBarunGothic
-                            if (data[0].promise_progress === 50)
-                                small.text-success.font-weight-bold 진행중
-                            else
-                                small 진행중
-                        li.list-inline-item.text-muted.font-family-NanumBarunGothic
-                            if (data[0].promise_progress === 75)
-                                small.text-success.font-weight-bold 변경
-                            else
-                                small 변경
-                        li.list-inline-item.text-muted.font-family-NanumBarunGothic
-                            if (data[0].promise_progress === 100)
-                                small.text-success.font-weight-bold 완료
-                            else
-                                small 완료
+                    if(type !== '6')
+                        .progress.mt-3(style='height: 1.75em;')
+                            .progress-bar.progress-bar-striped.progress-bar-animated.bg-success(role='progressbar' aria-valuemin='0' aria-valuemax='100' aria-valuenow=data[0].promise_progress style='width:' + data[0].promise_progress + '%')
+                        ul.list-inline.d-flex.justify-content-between
+                            li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                                if (data[0].promise_progress === 0)
+                                    small.text-success.font-weight-bold 평가안됨
+                                else
+                                    small 평가안됨
+                            li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                                if (data[0].promise_progress === 25)
+                                    small.text-success.font-weight-bold 지체
+                                else
+                                    small 지체
+                            li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                                if (data[0].promise_progress === 50)
+                                    small.text-success.font-weight-bold 진행중
+                                else
+                                    small 진행중
+                            li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                                if (data[0].promise_progress === 75)
+                                    small.text-success.font-weight-bold 변경
+                                else
+                                    small 변경
+                            li.list-inline-item.text-muted.font-family-NanumBarunGothic
+                                if (data[0].promise_progress === 100)
+                                    small.text-success.font-weight-bold 완료
+                                else
+                                    small 완료
+                    else
+                        h4.text-danger.mt-3 파기
                 .policy-view-content.mt-3
                     .title.d-flex
                         i.fa.fa-newspaper.fa-2x.mr-2(aria-hidden='true')
@@ -87,7 +90,7 @@ block content
                                 li.highlight-content-box.policy-eval-box.mt-2
                                     ul.d-flex.justify-content-between.align-items-center
                                         li
-                                            h5.title
+                                            h5.titlew
                                                 | 평가자:
                                                 =evalData.displayName
                                                 | |

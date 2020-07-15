@@ -39,7 +39,7 @@ block content
     section.container
         .row.mt-5
             .col-md-12
-                table.table.table-striped.table-bordered.font-family-NanumBarunGothic.text-center#budgetDataTable(style='width: 100%;')
+                table.table.table-striped.table-bordered.font-family-NanumBarunGothic.text-center.table-hover#budgetDataTable(style='width: 100%; cursor:pointer')
                     thead
                         tr
                             th 번호
@@ -59,4 +59,4 @@ block content
                                 td(style='vertical-align: middle;')=budgetItem.bidResult
                                 td(style='vertical-align: middle;')=budgetItem.eval_cnt
                                 td(style='vertical-align: middle;')
-                                    a(href=`/budget/view?demandYear=${budgetItem.demandYear}&orntCode=${budgetItem.orntCode}&dcsNo=${budgetItem.dcsNo}&pblancNo=${budgetItem.pblancNo}&pblancOdr=${budgetItem.pblancOdr}`).btn.btn-primary.btn-sm 바로가기
+                                    a(target='_blank' href=`/budget/view?demandYear=${budgetItem.demandYear}&orntCode=${budgetItem.orntCode}&dcsNo=${budgetItem.dcsNo}&pblancNo=${budgetItem.pblancNo}&pblancOdr=${budgetItem.pblancOdr}`).btn.btn-primary.btn-sm 바로가기

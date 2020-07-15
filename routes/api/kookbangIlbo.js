@@ -29,17 +29,4 @@ router.get('/kookbangIlbo', (req, res, next) => {
     });
 });
 
-router.get('/kookbangIlbo/:date/:fileName', (req, res, next) => {
-    const date = req.params.date;
-    const fileName = req.params.fileName;
-
-    request(`https://www.mnd.go.kr/media/newspaper/tmplat/upload/${date}/thumb1/${fileName}`, (error, response, body) => {
-        res.writeHead(200, {
-            'Content-Type': response.headers['content-type'],
-            'Content-Length': response.headers['content-length']
-        });
-        res.end(Buffer.from(body).toString('base64'));
-    });
-});
-
 module.exports = router;

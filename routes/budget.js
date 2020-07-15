@@ -18,13 +18,13 @@ const thousandsSeparators = num => {
 
 router.get('/supply', (req, res, next) => {
     request('https://mnd.dataportal.kr/dataset/personal_clothing_for_soldier_2019.json', (error, response, body) => {
-        console.log(body);
         res.render('budget-supply', {user: req.user, supplyData: body});
     });
 });
 
 router.get('/list', (req, res, next) => {
-    const openDateBegin = moment().subtract(6, 'M').format('YYYYMMDD');
+    // const openDateBegin = moment().subtract(6, 'M').format('YYYYMMDD');
+    const openDateBegin = moment().format('YYYY') + '0101';
     const opengDateEnd = moment().format('YYYYMMDD');
     request(`http://openapi.d2b.go.kr/openapi/service/BidResultInfoService/getDmstcCmpetBidResultList?_type=json&serviceKey=${serviceKey}&opengDateBegin=${openDateBegin}&opengDateEnd=${opengDateEnd}&orntCode=EHD&numOfRows=500&pageNo=1`, (error, response, body) => {
         const item = JSON.parse(body).response.body.items.item;
