@@ -13,9 +13,12 @@ block content
                         | 정직하고 바른 세상을 만드는 길
                         b &nbsp;가온길
                     .search-section
-                        input(type='text' placeholder='검색').form-control.form-control-lg
-                        .input-search-ico
-                            i.fa.fa-2x.fa-search
+                        form.search-action-form(action='/policy/search' method='get')
+                            input(type='hidden' name='type' value='search')
+                            input(type='hidden' name='query' value='')
+                            input.form-control.form-control-lg(name='query-tmp' type='text' placeholder='검색')
+                            .input-search-ico
+                                i.fa.fa-2x.fa-search
     section.container
         .row.mt-3
             .col-md-4
@@ -70,7 +73,7 @@ block content
                     .highlight-header
                         .title.d-flex
                             i.fa.fa-balance-scale.fa-2x.mr-2
-                            h2 정책 평가
+                            h2 공약 평가
                         a.notice-more(href='/policy/list') 더보기
                     ul.highlight-list-content
                         -for (let idx = 0; idx < 5; idx++)
