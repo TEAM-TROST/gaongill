@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const cors = require('cors');
+router.use(cors());
+
 const conn = require('../../middleware/db')();
 
 router.get('/policyProgressCount', (req, res, next) => {

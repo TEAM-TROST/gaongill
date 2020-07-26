@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const cors = require('cors');
+router.use(cors());
+
 const cheerio = require('cheerio');
 const request = require('request');
 const iconv = require('iconv-lite');
