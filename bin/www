@@ -25,8 +25,8 @@ app.set('port', port);
  */
 
 const optionsForHTTPS = {
-  key: fs.readFileSync('/etc/letsencrypt/live/dataportal.kr/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/dataportal.kr/cert.pem')
+  key: fs.readFileSync('/etc/letsencrypt/live/mnd.dataportal.kr/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/mnd.dataportal.kr/cert.pem')
 };
 const server = https.createServer(optionsForHTTPS, app);
 
